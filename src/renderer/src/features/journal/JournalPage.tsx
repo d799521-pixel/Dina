@@ -112,7 +112,7 @@ export function JournalPage(): React.JSX.Element {
             <ChevronRight />
           </Button>
         </div>
-        <h1 className="min-w-0 flex-1 truncate text-lg font-semibold">{title(view, anchor)}</h1>
+        <h1 className="min-w-0 flex-1 truncate text-lg font-semibold max-xl:order-first max-xl:basis-full">{title(view, anchor)}</h1>
         <Segmented
           value={view}
           onChange={setView}

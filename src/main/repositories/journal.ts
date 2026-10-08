@@ -7,7 +7,7 @@ import {
   type SlotNoteKind,
   type SlotStatus
 } from '@shared/types'
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 import {
   assertDate,
   assertEnum,

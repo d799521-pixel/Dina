@@ -135,7 +135,32 @@ installeurs sur Windows (NSIS + portable), macOS (dmg arm64 et x64) et Linux
 plate-forme, aucune recompilation n'est nécessaire (`npmRebuild: false`).
 Pousser une étiquette `v0.2.0` publie en plus une Release GitHub.
 
-## 7. Prochaines étapes
+## 7. Version iPad / navigateur (PWA)
+
+Apple n'autorise pas Electron sur iPad ; Dina y fonctionne donc comme
+application web installable, **avec le même code** :
+
+- `src/main/db/types.ts` définit l'interface `DB` minimale utilisée par les
+  repositories ; better-sqlite3 (bureau) et `SqlJsAdapter` (SQLite compilé en
+  WebAssembly, `src/renderer/src/web/sqljsAdapter.ts`) l'implémentent.
+- `src/main/handlers.ts` regroupe tous les canaux « données » ; le processus
+  principal les expose en IPC, la version web (`web/bridge.ts`) les appelle
+  directement dans la page. `window.dina` a la même forme dans les deux cas.
+- Stockage : le fichier SQLite est enregistré dans IndexedDB après chaque
+  modification, chiffré en AES-256-GCM (clé PBKDF2-SHA256, 310 000 itérations,
+  Web Crypto). La clé n'existe qu'en mémoire pendant la session.
+- Hors-ligne : service worker (vite-plugin-pwa) qui met en cache tout
+  l'applicatif, polices et WebAssembly compris. CSP `default-src 'self'` +
+  `'wasm-unsafe-eval'`.
+- Sauvegardes au même format que le bureau (PBKDF2 + AES-GCM + gzip) :
+  interchangeables dans les deux sens (testé).
+- Particularités iPad : le tableau s'affiche en plein écran dans la page
+  (projection par recopie d'écran), les PDF passent par l'aperçu
+  d'impression d'iPadOS, les fichiers sont téléchargés vers l'app Fichiers.
+- Publication : `.github/workflows/ipad.yml` publie `dist-web/` sur GitHub
+  Pages. Seul le code est publié, jamais de données.
+
+## 8. Prochaines étapes
 
 1. Bilan de séance → observations élèves en un clic depuis le cahier journal.
 2. Impression du cahier journal (jour / semaine) et des programmations.

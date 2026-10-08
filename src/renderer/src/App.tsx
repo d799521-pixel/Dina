@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import type { DbStatus } from '@shared/types'
 import { call } from './lib/api'
 import { Toaster } from './lib/toast'
+import { ProjectionOverlay } from './features/projection/ProjectionOverlay'
 import { ProjectionScreen } from './features/projection/ProjectionScreen'
+import { useProjectionWindowOpen } from './features/projection/useProjection'
 import { WelcomeScreen } from './features/setup/WelcomeScreen'
 import { Shell } from './features/shell/Shell'
 
@@ -26,7 +28,13 @@ function MainWindow(): React.JSX.Element {
       ) : (
         <WelcomeScreen status={status} onReady={setStatus} />
       )}
+      {window.dina.platform === 'web' && status?.state === 'open' && <WebProjection />}
       <Toaster />
     </>
   )
+}
+
+/** Sur iPad, « Projeter » affiche le tableau en plein écran dans la même fenêtre. */
+function WebProjection(): React.JSX.Element | null {
+  return useProjectionWindowOpen() ? <ProjectionOverlay /> : null
 }

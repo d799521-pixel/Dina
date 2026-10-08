@@ -1,5 +1,5 @@
 import type { LessonSummary, SocleDomain, StudentSummary, Subject } from '@shared/types'
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 
 export function listSubjects(db: DB): Subject[] {
   return db.prepare('SELECT * FROM subjects ORDER BY archived, position, name').all() as Subject[]

@@ -1,6 +1,6 @@
 import { addDays, isoWeekday } from '@shared/date'
 import type { TimetableSlot } from '@shared/types'
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 import { assertDate, ValidationError } from '../validation'
 
 function templateId(db: DB, classId: number): number {

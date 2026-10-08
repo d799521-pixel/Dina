@@ -1,5 +1,5 @@
 import { APPOINTMENT_KINDS, type Appointment, type AppointmentInput } from '@shared/types'
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 import { assertDate, assertEnum, assertId, assertTimeRange, text, ValidationError } from '../validation'
 
 type Row = Omit<Appointment, 'student_ids'> & { student_ids: string | null }

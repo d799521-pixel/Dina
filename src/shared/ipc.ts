@@ -154,6 +154,8 @@ export interface IpcEvents {
 export type IpcResult<T> = { ok: true; data: T } | { ok: false; error: string }
 
 export interface DinaBridge {
+  /** « desktop » : application Electron ; « web » : version navigateur / iPad. */
+  platform: 'desktop' | 'web'
   invoke<C extends Channel>(
     channel: C,
     ...args: Parameters<IpcContract[C]>

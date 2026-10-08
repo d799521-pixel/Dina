@@ -1,5 +1,5 @@
 import type { AppSettings } from '@shared/types'
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 import { assertTime, ValidationError } from '../validation'
 
 const DEFAULTS: AppSettings = {

@@ -1,22 +1,15 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { BrowserWindow, dialog, ipcMain } from 'electron'
-import { startOfWeek, today } from '@shared/date'
+import { today } from '@shared/date'
 import type { Channel, IpcContract, IpcResult } from '@shared/ipc'
 import type { DbManager } from './db/manager'
 import type { FontStore } from './fonts'
 import type { ProjectionController } from './projection'
-import * as appointments from './repositories/appointments'
-import * as journal from './repositories/journal'
-import * as prep from './repositories/preparations'
-import * as students from './repositories/students'
-import * as ref from './repositories/referentials'
-import { getAppSettings, updateAppSettings } from './repositories/settings'
-import * as timetable from './repositories/timetable'
 import { createBackup, readBackup, restoreBackup } from './services/backup'
 import { exportPdf } from './services/pdf'
-import { eraseStudent, exportStudentData } from './services/students'
+import { exportStudentData } from './services/students'
+import { dataHandlers, type Handler } from './handlers'
 
-type Handler<C extends Channel> = (...args: Parameters<IpcContract[C]>) => ReturnType<IpcContract[C]> | Promise<ReturnType<IpcContract[C]>>
 
 /**
  * Enregistre un canal. Les erreurs sont renvoyées sous forme de valeur afin
@@ -52,64 +45,10 @@ export function registerIpc(dbm: DbManager, projection: ProjectionController, fo
     return dbm.lock()
   })
 
-  handle('settings:get', () => getAppSettings(db()))
-  handle('settings:update', (patch) => updateAppSettings(db(), patch))
+  for (const [channel, fn] of Object.entries(dataHandlers(db, cls))) {
+    handle(channel as Channel, fn as Handler<Channel>)
+  }
 
-  handle('ref:subjects', () => ref.listSubjects(db()))
-  handle('ref:socle', () => ref.listSocleDomains(db()))
-  handle('ref:lessons', () => ref.listLessonSummaries(db(), cls()))
-  handle('ref:students', () => ref.listStudentSummaries(db(), cls()))
-
-  handle('journal:range', (from, to) => journal.listSlots(db(), cls(), from, to))
-  handle('journal:create', (input) => journal.createSlot(db(), cls(), input))
-  handle('journal:update', (id, patch) => journal.updateSlot(db(), cls(), id, patch))
-  handle('journal:delete', (id) => journal.deleteSlot(db(), cls(), id))
-  handle('journal:notes', (slotId) => journal.listSlotNotes(db(), slotId))
-  handle('journal:add-note', (slotId, kind, content) => journal.addSlotNote(db(), slotId, kind, content))
-  handle('journal:delete-note', (noteId) => journal.deleteSlotNote(db(), noteId))
-  handle('journal:day-note', (date) => journal.getDayNote(db(), cls(), date))
-  handle('journal:set-day-note', (date, content) => journal.setDayNote(db(), cls(), date, content))
-
-  handle('timetable:get', () => timetable.getTimetable(db(), cls()))
-  handle('timetable:save-week', (weekStart) => timetable.saveWeekAsTimetable(db(), cls(), startOfWeek(weekStart)))
-  handle('timetable:apply-week', (weekStart) =>
-    timetable.applyTimetableToWeek(db(), cls(), startOfWeek(weekStart), getAppSettings(db()).school_days)
-  )
-
-  handle('appointments:range', (from, to) => appointments.listAppointments(db(), cls(), from, to))
-  handle('appointments:create', (input) => appointments.createAppointment(db(), cls(), input))
-  handle('appointments:update', (id, input) => appointments.updateAppointment(db(), cls(), id, input))
-  handle('appointments:delete', (id) => appointments.deleteAppointment(db(), cls(), id))
-
-  handle('periods:list', () => prep.listClassPeriods(db(), cls()))
-  handle('periods:update', (id, input) => prep.updatePeriod(db(), cls(), id, input))
-
-  handle('sequences:list', () => prep.listSequences(db(), cls()))
-  handle('sequences:create', (input) => prep.createSequence(db(), cls(), input))
-  handle('sequences:update', (id, input) => prep.updateSequence(db(), cls(), id, input))
-  handle('sequences:delete', (id) => prep.deleteSequence(db(), cls(), id))
-
-  handle('lessons:of-sequence', (sequenceId) => prep.listSequenceLessons(db(), cls(), sequenceId))
-  handle('lessons:get', (id) => prep.getLesson(db(), cls(), id))
-  handle('lessons:create', (input) => prep.createLesson(db(), cls(), input))
-  handle('lessons:update', (id, input) => prep.updateLesson(db(), cls(), id, input))
-  handle('lessons:duplicate', (id) => prep.duplicateLesson(db(), cls(), id))
-  handle('lessons:delete', (id) => prep.deleteLesson(db(), cls(), id))
-
-  handle('programming:list', () => prep.listProgramming(db(), cls()))
-  handle('programming:create', (input) => prep.createProgrammingItem(db(), cls(), input))
-  handle('programming:update', (id, input) => prep.updateProgrammingItem(db(), cls(), id, input))
-  handle('programming:move', (id, direction) => prep.moveProgrammingItem(db(), cls(), id, direction))
-  handle('programming:delete', (id) => prep.deleteProgrammingItem(db(), cls(), id))
-  handle('programming:to-sequence', (id) => prep.sequenceFromProgramming(db(), cls(), id))
-
-  handle('students:list', (includeLeft) => students.listStudents(db(), cls(), includeLeft))
-  handle('students:get', (id) => students.getStudentFile(db(), cls(), id))
-  handle('students:save', (file) => students.saveStudentFile(db(), cls(), file))
-  handle('students:observations', (id) => students.listObservations(db(), cls(), id))
-  handle('students:add-observation', (id, input) => students.addObservation(db(), cls(), id, input))
-  handle('students:delete-observation', (id) => students.deleteObservation(db(), cls(), id))
-  handle('students:appointments', (id) => students.listStudentAppointments(db(), cls(), id))
   handle('students:export', async (id) => {
     const data = exportStudentData(db(), cls(), id)
     const { canceled, filePath } = await dialog.showSaveDialog(parent(), {
@@ -121,7 +60,6 @@ export function registerIpc(dbm: DbManager, projection: ProjectionController, fo
     await writeFile(filePath, JSON.stringify(data, null, 2), 'utf8')
     return filePath
   })
-  handle('students:erase', (id) => eraseStudent(db(), cls(), id))
 
   handle('pdf:export', (html, name) => exportPdf(parent(), html, name))
 

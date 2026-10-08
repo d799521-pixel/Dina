@@ -6,7 +6,7 @@ import {
   type StudentListItem,
   type StudentObservation
 } from '@shared/types'
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 import { assertDate, assertEnum, assertId, optionalId, text, ValidationError } from '../validation'
 
 const bit = (v: unknown): 0 | 1 => (v ? 1 : 0)

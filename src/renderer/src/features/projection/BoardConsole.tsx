@@ -47,6 +47,7 @@ const PRESETS = [1, 2, 3, 5, 10, 15, 20, 30]
 /** Pupitre de l'enseignant : pilote l'écran projeté et en montre un aperçu fidèle. */
 export function BoardConsole(): React.JSX.Element | null {
   const [state, update] = useProjectionState()
+  const isWeb = window.dina.platform === 'web'
   const windowOpen = useProjectionWindowOpen()
   const { slots, nowMin } = useTodaySlots()
   const now = useTimerTick(state?.timer)
@@ -98,7 +99,7 @@ export function BoardConsole(): React.JSX.Element | null {
             </Button>
           ) : (
             <Button onClick={() => call('projection:open')}>
-              <MonitorPlay /> Projeter
+              <MonitorPlay /> {isWeb ? 'Plein écran' : 'Projeter'}
             </Button>
           )}
         </div>
@@ -228,7 +229,9 @@ export function BoardConsole(): React.JSX.Element | null {
             <Stage state={state} slots={slots} nowMin={nowMin} now={now} />
           </div>
           <p className="text-xs text-muted-foreground">
-            Aperçu fidèle de l’écran projeté · dans la fenêtre de projection : <kbd>F</kbd> plein écran, <kbd>Échap</kbd> quitter
+            {isWeb
+              ? 'Aperçu fidèle · « Plein écran » affiche le tableau sur tout l’iPad : activez la recopie d’écran (AirPlay ou câble) pour le projeter'
+              : <>Aperçu fidèle de l’écran projeté · dans la fenêtre de projection : <kbd>F</kbd> plein écran, <kbd>Échap</kbd> quitter</>}
           </p>
         </section>
       </div>

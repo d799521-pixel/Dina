@@ -128,7 +128,7 @@ export function ProgrammingView({
                     ) : (
                       <button
                         onClick={() => setAdding(key)}
-                        className="mt-1 flex w-full items-center justify-center rounded py-0.5 text-muted-foreground opacity-0 group-hover:opacity-100 hover:bg-muted"
+                        className="mt-1 flex w-full items-center justify-center rounded py-0.5 text-muted-foreground opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100 hover:bg-muted"
                         aria-label="Ajouter"
                       >
                         <Plus className="size-3.5" />

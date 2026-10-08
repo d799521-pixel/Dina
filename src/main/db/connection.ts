@@ -1,7 +1,8 @@
 import { openSync, readSync, closeSync, existsSync } from 'node:fs'
 import Database from 'better-sqlite3-multiple-ciphers'
-import type { Database as DB } from 'better-sqlite3-multiple-ciphers'
+import type { Database as BetterDB } from 'better-sqlite3-multiple-ciphers'
 import { migrate } from './migrator'
+import type { DB } from './types'
 
 export type { DB }
 
@@ -31,13 +32,13 @@ export function isEncryptedFile(path: string): boolean {
 const quote = (s: string): string => `'${s.replaceAll("'", "''")}'`
 
 /** Chiffrement compatible SQLCipher 4 (AES-256, PBKDF2-HMAC-SHA512 256 000 itérations). */
-function applyKey(db: DB, passphrase: string): void {
+function applyKey(db: BetterDB, passphrase: string): void {
   db.pragma(`cipher = 'sqlcipher'`)
   db.pragma('legacy = 4')
   db.pragma(`key = ${quote(passphrase)}`)
 }
 
-function configure(db: DB): void {
+function configure(db: BetterDB): void {
   db.pragma('journal_mode = WAL')
   db.pragma('synchronous = NORMAL')
   db.pragma('foreign_keys = ON')
@@ -61,8 +62,10 @@ export function openDatabase(path: string, passphrase: string | null): DB {
       throw err
     }
     configure(db)
-    migrate(db)
-    return db
+    // better-sqlite3 implémente l'interface DB (ses types de transaction sont plus riches).
+    const shared = db as unknown as DB
+    migrate(shared)
+    return shared
   } catch (err) {
     db.close()
     throw err

@@ -1,4 +1,4 @@
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 import { assertId, ValidationError } from '../validation'
 
 /** Tables contenant des données personnelles d'un élève (clé : student_id). */

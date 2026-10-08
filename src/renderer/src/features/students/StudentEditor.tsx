@@ -402,7 +402,7 @@ function FollowUp({ studentId }: { studentId: number }): React.JSX.Element {
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 {fmt(o.date, 'EEE d MMM yyyy')} <Badge className="py-0">{o.category}</Badge>
                 <button
-                  className="ml-auto opacity-0 group-hover:opacity-100"
+                  className="ml-auto opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100"
                   onClick={async () => {
                     await tryCall('students:delete-observation', o.id)
                     setObservations((l) => l.filter((x) => x.id !== o.id))

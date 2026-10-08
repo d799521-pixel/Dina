@@ -1,59 +1,40 @@
-import { createCipheriv, createDecipheriv, randomBytes, scryptSync } from 'node:crypto'
+import { createCipheriv, createDecipheriv, pbkdf2Sync, randomBytes, scryptSync } from 'node:crypto'
 import { gunzipSync, gzipSync } from 'node:zlib'
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 import { ValidationError } from '../validation'
+import {
+  assertEnvelope,
+  BACKUP_FORMAT,
+  createPayload,
+  PBKDF2_ITERATIONS,
+  type BackupEnvelope,
+  type BackupKdf,
+  type BackupPayload
+} from './backupCore'
 
-const FORMAT = 'dina-backup'
-const SCRYPT = { N: 2 ** 15, r: 8, p: 1, maxmem: 64 * 1024 * 1024 }
+export { restoreBackup } from './backupCore'
+export type { BackupEnvelope }
 
-interface Payload {
-  schema_version: number
-  exported_at: string
-  tables: Record<string, Record<string, unknown>[]>
-}
-
-export type BackupEnvelope =
-  | { format: typeof FORMAT; version: 1; encrypted: false; payload: Payload }
-  | {
-      format: typeof FORMAT
-      version: 1
-      encrypted: true
-      kdf: { name: 'scrypt'; salt: string; N: number; r: number; p: number }
-      cipher: 'aes-256-gcm'
-      iv: string
-      tag: string
-      data: string // base64(gzip(JSON))
-    }
-
-/** Tables utilisateur, dans l'ordre de création (= ordre compatible avec les clés étrangères). */
-function userTables(db: DB): string[] {
-  return (
-    db
-      .prepare(`SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' ORDER BY rowid`)
-      .all() as { name: string }[]
-  ).map((r) => r.name)
+function deriveKey(passphrase: string, kdf: BackupKdf): Buffer {
+  const salt = Buffer.from(kdf.salt, 'base64')
+  return kdf.name === 'pbkdf2'
+    ? pbkdf2Sync(passphrase, salt, kdf.iterations, 32, 'sha256')
+    : scryptSync(passphrase, salt, 32, { N: kdf.N, r: kdf.r, p: kdf.p, maxmem: 64 * 1024 * 1024 })
 }
 
 export function createBackup(db: DB, passphrase: string | null): BackupEnvelope {
-  const tables: Payload['tables'] = {}
-  for (const t of userTables(db)) tables[t] = db.prepare(`SELECT * FROM "${t}"`).all() as Record<string, unknown>[]
-  const payload: Payload = {
-    schema_version: db.pragma('user_version', { simple: true }) as number,
-    exported_at: new Date().toISOString(),
-    tables
-  }
-  if (!passphrase) return { format: FORMAT, version: 1, encrypted: false, payload }
+  const payload = createPayload(db)
+  if (!passphrase) return { format: BACKUP_FORMAT, version: 1, encrypted: false, payload }
 
-  const salt = randomBytes(16)
+  const kdf: BackupKdf = { name: 'pbkdf2', hash: 'SHA-256', iterations: PBKDF2_ITERATIONS, salt: randomBytes(16).toString('base64') }
   const iv = randomBytes(12)
-  const key = scryptSync(passphrase, salt, 32, SCRYPT)
-  const cipher = createCipheriv('aes-256-gcm', key, iv)
+  const cipher = createCipheriv('aes-256-gcm', deriveKey(passphrase, kdf), iv)
   const data = Buffer.concat([cipher.update(gzipSync(JSON.stringify(payload))), cipher.final()])
   return {
-    format: FORMAT,
+    format: BACKUP_FORMAT,
     version: 1,
     encrypted: true,
-    kdf: { name: 'scrypt', salt: salt.toString('base64'), N: SCRYPT.N, r: SCRYPT.r, p: SCRYPT.p },
+    kdf,
     cipher: 'aes-256-gcm',
     iv: iv.toString('base64'),
     tag: cipher.getAuthTag().toString('base64'),
@@ -61,47 +42,16 @@ export function createBackup(db: DB, passphrase: string | null): BackupEnvelope 
   }
 }
 
-export function readBackup(raw: unknown, passphrase: string | null): Payload {
-  const env = raw as BackupEnvelope
-  if (!env || env.format !== FORMAT || env.version !== 1) throw new ValidationError('Fichier de sauvegarde non reconnu')
+export function readBackup(raw: unknown, passphrase: string | null): BackupPayload {
+  const env = assertEnvelope(raw)
   if (!env.encrypted) return env.payload
   if (!passphrase) throw new ValidationError('Cette sauvegarde est chiffrée : mot de passe requis')
   try {
-    const key = scryptSync(passphrase, Buffer.from(env.kdf.salt, 'base64'), 32, {
-      N: env.kdf.N,
-      r: env.kdf.r,
-      p: env.kdf.p,
-      maxmem: SCRYPT.maxmem
-    })
-    const decipher = createDecipheriv('aes-256-gcm', key, Buffer.from(env.iv, 'base64'))
+    const decipher = createDecipheriv('aes-256-gcm', deriveKey(passphrase, env.kdf), Buffer.from(env.iv, 'base64'))
     decipher.setAuthTag(Buffer.from(env.tag, 'base64'))
     const zipped = Buffer.concat([decipher.update(Buffer.from(env.data, 'base64')), decipher.final()])
-    return JSON.parse(gunzipSync(zipped).toString('utf8')) as Payload
+    return JSON.parse(gunzipSync(zipped).toString('utf8')) as BackupPayload
   } catch {
     throw new ValidationError('Mot de passe incorrect ou sauvegarde corrompue')
   }
-}
-
-/** Remplace intégralement le contenu de la base par celui de la sauvegarde. */
-export function restoreBackup(db: DB, payload: Payload): void {
-  const current = db.pragma('user_version', { simple: true }) as number
-  if (payload.schema_version > current) {
-    throw new ValidationError('Sauvegarde issue d’une version plus récente de Dina : mettez l’application à jour.')
-  }
-  const tables = userTables(db)
-  db.transaction(() => {
-    db.pragma('defer_foreign_keys = ON')
-    for (const t of [...tables].reverse()) db.prepare(`DELETE FROM "${t}"`).run()
-    for (const t of tables) {
-      const rows = payload.tables[t]
-      if (!rows?.length) continue
-      const columns = new Set((db.prepare(`PRAGMA table_info("${t}")`).all() as { name: string }[]).map((c) => c.name))
-      for (const row of rows) {
-        const keys = Object.keys(row).filter((k) => columns.has(k))
-        db.prepare(
-          `INSERT INTO "${t}" (${keys.map((k) => `"${k}"`).join(', ')}) VALUES (${keys.map(() => '?').join(', ')})`
-        ).run(...keys.map((k) => row[k]))
-      }
-    }
-  })()
 }

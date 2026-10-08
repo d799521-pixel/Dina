@@ -222,7 +222,7 @@ function SlotCard({ slot, onChanged, onEdit }: { slot: JournalSlotView; onChange
             <li key={n.id} className="group flex items-center gap-2 text-sm">
               <span className={cn('rounded px-1.5 py-0.5 text-[11px] font-medium', NOTE_STYLE[n.kind])}>{NOTE_KIND_LABELS[n.kind]}</span>
               <span className="flex-1">{n.content}</span>
-              <button className="opacity-0 group-hover:opacity-100" onClick={() => removeNote(n.id)} aria-label="Supprimer la remarque">
+              <button className="opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100" onClick={() => removeNote(n.id)} aria-label="Supprimer la remarque">
                 <Trash2 className="size-3.5 text-muted-foreground" />
               </button>
             </li>

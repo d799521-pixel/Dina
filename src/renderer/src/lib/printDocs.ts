@@ -18,7 +18,7 @@ function page(title: string, body: string): string {
 <style>
   @page { size: A4; }
   * { box-sizing: border-box; }
-  body { font: 10.5pt/1.45 "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: #1f2937; margin: 0; }
+  .doc { font: 10.5pt/1.45 "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: #1f2937; margin: 0; }
   h1 { font-size: 18pt; margin: 0 0 2pt; }
   h2 { font-size: 11.5pt; margin: 14pt 0 5pt; padding-bottom: 2pt; border-bottom: 1.5pt solid #c7d2fe; color: #3730a3; }
   .meta { color: #6b7280; font-size: 9.5pt; }
@@ -26,14 +26,14 @@ function page(title: string, body: string): string {
   .label { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .03em; color: #6b7280; }
   table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 9.5pt; }
   td, th { overflow-wrap: anywhere; }
-  html, body { width: 100%; }
+  body { margin: 0; }
   th, td { border: .75pt solid #d1d5db; padding: 4pt 5pt; vertical-align: top; text-align: left; }
   th { background: #eef2ff; font-weight: 600; }
   .empty { color: #9ca3af; }
   .alert { border: 1.5pt solid #dc2626; background: #fef2f2; color: #991b1b; padding: 6pt 8pt; border-radius: 4pt; margin-top: 8pt; }
   .tag { display: inline-block; border: .75pt solid #a5b4fc; border-radius: 8pt; padding: 0 5pt; margin-right: 3pt; font-size: 9pt; }
   footer { margin-top: 18pt; font-size: 8pt; color: #9ca3af; }
-</style></head><body>${body}</body></html>`
+</style></head><body><div class="doc">${body}</div></body></html>`
 }
 
 export function lessonDocument(lesson: Lesson, sequence: SequenceListItem | null, subject: Subject | undefined): string {

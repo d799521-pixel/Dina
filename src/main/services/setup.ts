@@ -1,6 +1,6 @@
 import { addDays, startOfWeek, today } from '@shared/date'
 import type { SetupInput } from '@shared/types'
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 import { createClassWithYear } from '../repositories/classes'
 import { applyTimetableToWeek } from '../repositories/timetable'
 import { getAppSettings } from '../repositories/settings'

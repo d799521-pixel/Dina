@@ -11,7 +11,7 @@ import {
   type SequenceInput,
   type SequenceListItem
 } from '@shared/types'
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 import { assertDate, assertEnum, assertId, optionalId, text, ValidationError } from '../validation'
 
 const now = "strftime('%Y-%m-%dT%H:%M:%fZ', 'now')"

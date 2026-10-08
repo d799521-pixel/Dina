@@ -15,7 +15,25 @@ chiffrée (SQLCipher / AES-256) sur le poste de l'enseignant·e.
 | **Fiche de préparation** | **Fiche élève** |
 | ![](docs/captures/fiche-seance.png) | ![](docs/captures/fiche-eleve.png) |
 
-## Installer Dina (sans rien de technique)
+## Sur iPad (ou tout navigateur récent)
+
+1. Dans **Safari**, ouvrez **https://d799521-pixel.github.io/Dina/**.
+2. Touchez l'icône **Partager** (carré avec une flèche) → **Sur l'écran
+   d'accueil** → **Ajouter**. L'icône Dina apparaît comme une application.
+3. Lancez Dina depuis cette icône. Après la première ouverture, elle fonctionne
+   **sans Internet**.
+
+Vos données restent **dans l'iPad** (stockage local, chiffré par votre mot de
+passe) : rien n'est envoyé sur Internet. Pour projeter, utilisez la recopie
+d'écran (AirPlay vers une Apple TV ou câble USB-C/HDMI) puis le bouton
+**Plein écran** du tableau.
+
+⚠️ Supprimer l'icône Dina ou effacer les données de Safari efface la base :
+faites régulièrement **Paramètres → Sauvegarde → Exporter** (le fichier
+arrive dans l'app Fichiers). Une sauvegarde faite sur iPad se restaure sur
+l'ordinateur, et inversement.
+
+## Installer Dina sur un ordinateur (sans rien de technique)
 
 1. Sur GitHub, ouvrez l'onglet **Actions**, cliquez sur la dernière exécution
    « Installeurs » marquée d'une coche verte.
@@ -47,7 +65,9 @@ npm install
 npm run dev        # application en mode développement (rechargement à chaud)
 npm test           # tests de la couche données (exécutés dans le Node d'Electron)
 npm run typecheck
-npm run dist       # installeurs : .exe (NSIS + portable), .dmg, AppImage / .deb
+npm run dist       # installeurs : .exe (NSIS + portable), .dmg, AppImage
+npm run dev:web    # version navigateur / iPad en développement
+npm run build:web  # version navigateur / iPad (PWA) dans dist-web/
 ```
 
 Variables utiles :

@@ -135,11 +135,24 @@ export function SettingsPage({ status, onStatusChange }: { status: DbStatus; onS
 
         <Section title="Confidentialité">
           <ul className="list-disc space-y-1 pl-5 text-sm text-muted-foreground">
-            <li>Aucune connexion Internet : toute requête réseau est bloquée par l’application.</li>
-            <li>Aucune télémétrie, aucun rapport de plantage, aucune mise à jour automatique.</li>
-            <li>Polices, icônes et scripts sont embarqués localement.</li>
+            {window.dina.platform === 'web' ? (
+              <>
+                <li>Une fois ouverte, Dina fonctionne sans Internet. Aucune donnée n’est envoyée : tout reste sur cet appareil.</li>
+                <li>Aucune télémétrie, aucun compte, aucun cookie publicitaire.</li>
+                <li className="font-medium text-amber-700">
+                  Supprimer l’icône Dina de l’écran d’accueil ou effacer les données de Safari efface aussi la base :
+                  exportez une sauvegarde régulièrement (elle arrive dans l’app Fichiers).
+                </li>
+              </>
+            ) : (
+              <>
+                <li>Aucune connexion Internet : toute requête réseau est bloquée par l’application.</li>
+                <li>Aucune télémétrie, aucun rapport de plantage, aucune mise à jour automatique.</li>
+                <li>Polices, icônes et scripts sont embarqués localement.</li>
+              </>
+            )}
             <li>
-              Fichier de données : <code className="text-xs break-all">{status.path}</code>
+              Données : <code className="text-xs break-all">{status.path}</code>
             </li>
           </ul>
         </Section>

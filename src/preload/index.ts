@@ -4,6 +4,7 @@ import { CHANNELS, type DinaBridge, type IpcEvents } from '@shared/ipc'
 const EVENTS: readonly (keyof IpcEvents)[] = ['projection:state', 'projection:window']
 
 const bridge: DinaBridge = {
+  platform: 'desktop',
   invoke(channel, ...args) {
     if (!CHANNELS.includes(channel)) return Promise.reject(new Error(`Canal interdit : ${channel}`))
     return ipcRenderer.invoke(channel, ...args)

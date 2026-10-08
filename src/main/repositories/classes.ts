@@ -1,5 +1,5 @@
 import type { Period, SchoolClass } from '@shared/types'
-import type { DB } from '../db/connection'
+import type { DB } from '../db/types'
 import { getSetting, setSetting } from './settings'
 
 interface ClassRow {
