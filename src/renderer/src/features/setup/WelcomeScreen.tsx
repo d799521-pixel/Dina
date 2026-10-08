@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Lock, ShieldCheck, WifiOff } from 'lucide-react'
-import { LEVELS } from '@shared/labels'
+import { LEVELS, WEEKDAY_LABELS } from '@shared/labels'
 import type { DbStatus } from '@shared/types'
 import { Button } from '@/components/ui/button'
 import { Field, Input } from '@/components/ui/input'
@@ -68,6 +68,7 @@ function Setup({ onReady }: { onReady: (s: DbStatus) => void }): React.JSX.Eleme
   const [pass, setPass] = useState('')
   const [pass2, setPass2] = useState('')
   const [demo, setDemo] = useState(true)
+  const [days, setDays] = useState<number[]>([1, 2, 4, 5])
   const [busy, setBusy] = useState(false)
 
   const passOk = !encrypt || (pass.length >= 8 && pass === pass2)
@@ -82,7 +83,8 @@ function Setup({ onReady }: { onReady: (s: DbStatus) => void }): React.JSX.Eleme
           class_name: className,
           levels,
           school_year_label: year,
-          demo
+          demo,
+          school_days: days
         })
       )
     } catch (err) {
@@ -121,6 +123,27 @@ function Setup({ onReady }: { onReady: (s: DbStatus) => void }): React.JSX.Eleme
         </div>
       </div>
 
+      <div>
+        <span className="text-xs font-medium text-muted-foreground">Jours où vous êtes en classe</span>
+        <div className="mt-1.5 flex flex-wrap gap-1.5">
+          {WEEKDAY_LABELS.slice(1, 7).map((label, i) => {
+            const d = i + 1
+            const on = days.includes(d)
+            return (
+              <button
+                key={d}
+                type="button"
+                onClick={() => setDays((ds) => (on ? ds.filter((x) => x !== d) : [...ds, d].sort()))}
+                className={cn('rounded-full border px-3 py-1 text-xs', on ? 'border-primary bg-primary text-primary-foreground' : 'hover:bg-accent')}
+              >
+                {label}
+              </button>
+            )
+          })}
+        </div>
+        <p className="mt-1 text-xs text-muted-foreground">Alternant·e, temps partiel, complément de service : ne cochez que vos jours.</p>
+      </div>
+
       <label className="flex items-center gap-2 text-sm">
         <input type="checkbox" checked={encrypt} onChange={(e) => setEncrypt(e.target.checked)} />
         Chiffrer la base avec un mot de passe (recommandé : fiches élèves, santé, contacts)
@@ -142,7 +165,7 @@ function Setup({ onReady }: { onReady: (s: DbStatus) => void }): React.JSX.Eleme
         <input type="checkbox" checked={demo} onChange={(e) => setDemo(e.target.checked)} />
         Ajouter un exemple (emploi du temps, séquence de mathématiques, rendez-vous)
       </label>
-      <Button type="submit" size="lg" disabled={busy || !className.trim() || !passOk}>
+      <Button type="submit" size="lg" disabled={busy || !className.trim() || !passOk || days.length === 0}>
         Commencer
       </Button>
     </form>

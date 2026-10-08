@@ -1,6 +1,7 @@
 import type { Channel, IpcContract } from '@shared/ipc'
 import type { DB } from './db/types'
 import * as appointments from './repositories/appointments'
+import { updateClass } from './repositories/classes'
 import * as journal from './repositories/journal'
 import * as prep from './repositories/preparations'
 import * as ref from './repositories/referentials'
@@ -29,6 +30,8 @@ export function dataHandlers(db: () => DB, cls: () => number): HandlerMap {
     'ref:socle': () => ref.listSocleDomains(db()),
     'ref:lessons': () => ref.listLessonSummaries(db(), cls()),
     'ref:students': () => ref.listStudentSummaries(db(), cls()),
+    'ref:competencies': () => ref.listCompetencies(db()),
+    'class:update': (name, levels) => updateClass(db(), cls(), name, levels),
 
     'journal:range': (from, to) => journal.listSlots(db(), cls(), from, to),
     'journal:create': (input) => journal.createSlot(db(), cls(), input),
@@ -39,11 +42,15 @@ export function dataHandlers(db: () => DB, cls: () => number): HandlerMap {
     'journal:delete-note': (noteId) => journal.deleteSlotNote(db(), noteId),
     'journal:day-note': (date) => journal.getDayNote(db(), cls(), date),
     'journal:set-day-note': (date, content) => journal.setDayNote(db(), cls(), date, content),
+    'journal:images': (slotId) => journal.listSlotImages(db(), cls(), slotId),
+    'journal:add-image': (slotId, image) => journal.addSlotImage(db(), cls(), slotId, image),
+    'journal:delete-image': (id) => journal.deleteSlotImage(db(), cls(), id),
 
     'timetable:get': () => timetable.getTimetable(db(), cls()),
     'timetable:save-week': (weekStart) => timetable.saveWeekAsTimetable(db(), cls(), startOfWeek(weekStart)),
     'timetable:apply-week': (weekStart) =>
       timetable.applyTimetableToWeek(db(), cls(), startOfWeek(weekStart), getAppSettings(db()).school_days),
+    'timetable:replace': (slots) => timetable.replaceTimetable(db(), cls(), slots),
 
     'appointments:range': (from, to) => appointments.listAppointments(db(), cls(), from, to),
     'appointments:create': (input) => appointments.createAppointment(db(), cls(), input),

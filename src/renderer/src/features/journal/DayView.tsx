@@ -8,6 +8,7 @@ import {
   type JournalSlotNote,
   type JournalSlotView,
   type SlotNoteKind,
+  type SlotImage,
   type SlotStatus
 } from '@shared/types'
 import { Badge } from '@/components/ui/badge'
@@ -16,6 +17,8 @@ import { Input, Textarea } from '@/components/ui/input'
 import { call, tryCall } from '@/lib/api'
 import { alpha, frTime } from '@/lib/format'
 import { SubjectIcon } from '@/lib/icons'
+import { useImageUrls } from '@/lib/images'
+import { columns, overlapGroups } from '@/lib/journalLayout'
 import { cn } from '@/lib/utils'
 
 const STATUS_STYLE: Record<SlotStatus, string> = {
@@ -59,7 +62,7 @@ export function DayView({
   const done = daySlots.filter((s) => s.status === 'fait').length
 
   return (
-    <div className="mx-auto grid max-w-6xl gap-6 p-5 lg:grid-cols-[minmax(0,1fr)_320px]">
+    <div className="mx-auto grid max-w-6xl gap-6 p-5 xl:grid-cols-[minmax(0,1fr)_300px]">
       <section className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-semibold text-muted-foreground uppercase">
@@ -69,9 +72,22 @@ export function DayView({
             <Plus /> Créneau
           </Button>
         </div>
-        {daySlots.map((s) => (
-          <SlotCard key={s.id} slot={s} onChanged={onChanged} onEdit={() => onOpenSlot(s)} />
-        ))}
+        {overlapGroups(daySlots).map((group) =>
+          group.length === 1 ? (
+            <SlotCard key={group[0].id} slot={group[0]} onChanged={onChanged} onEdit={() => onOpenSlot(group[0])} />
+          ) : (
+            // Créneaux simultanés (PS / GS, ateliers) : en colonnes, comme sur le cahier journal papier.
+            <div key={group[0].id} className="grid items-start gap-2 rounded-2xl bg-muted/60 p-2" style={{ gridTemplateColumns: `repeat(auto-fit, minmax(240px, 1fr))` }}>
+              {columns(group).map((col) => (
+                <div key={col[0].id} className="flex flex-col gap-2">
+                  {col.map((s) => (
+                    <SlotCard key={s.id} slot={s} compact onChanged={onChanged} onEdit={() => onOpenSlot(s)} />
+                  ))}
+                </div>
+              ))}
+            </div>
+          )
+        )}
       </section>
 
       <aside className="flex flex-col gap-5">
@@ -108,11 +124,22 @@ export function DayView({
   )
 }
 
-function SlotCard({ slot, onChanged, onEdit }: { slot: JournalSlotView; onChanged: () => void; onEdit: () => void }): React.JSX.Element {
+function SlotCard({
+  slot,
+  compact = false,
+  onChanged,
+  onEdit
+}: {
+  slot: JournalSlotView
+  compact?: boolean
+  onChanged: () => void
+  onEdit: () => void
+}): React.JSX.Element {
   const [notes, setNotes] = useState<JournalSlotNote[]>([])
   const [bilan, setBilan] = useState(slot.bilan)
   const [pendingKind, setPendingKind] = useState<SlotNoteKind | null>(null)
   const [noteText, setNoteText] = useState('')
+  const [showKinds, setShowKinds] = useState(false)
 
   useEffect(() => setBilan(slot.bilan), [slot.bilan])
   useEffect(() => {
@@ -161,10 +188,17 @@ function SlotCard({ slot, onChanged, onEdit }: { slot: JournalSlotView; onChange
             <Clock className="size-3" /> {frTime(slot.start_time)} – {frTime(slot.end_time)} · {minutes} min
             {slot.socle_domain && <Badge className="py-0">{slot.socle_domain}</Badge>}
           </div>
-          <h3 className="truncate font-semibold">
-            {slot.subject_name ?? 'Créneau'}
-            {slot.title && <span className="font-normal text-muted-foreground"> — {slot.title}</span>}
+          <h3 className={cn('font-semibold', !compact && 'truncate')}>
+            {slot.audience && <span className="mr-1 rounded bg-indigo-100 px-1.5 py-0.5 text-xs font-bold text-indigo-800">{slot.audience}</span>}
+            {slot.title || slot.subject_name || 'Créneau'}
+            {slot.title && slot.subject_short && (
+              <span className="ml-1.5 text-xs font-normal" style={{ color: slot.subject_color ?? undefined }}>
+                {slot.subject_short}
+              </span>
+            )}
           </h3>
+          {slot.activities && <p className="mt-1 text-sm whitespace-pre-line text-foreground/90">{slot.activities}</p>}
+          {slot.images_count > 0 && <SlotThumbs slotId={slot.id} count={slot.images_count} />}
           {slot.lesson_id && (
             <p className="mt-1 flex items-start gap-1.5 text-sm text-foreground/80">
               <BookMarked className="mt-0.5 size-4 shrink-0 text-primary" />
@@ -196,7 +230,11 @@ function SlotCard({ slot, onChanged, onEdit }: { slot: JournalSlotView; onChange
           </button>
         ))}
         <span className="mx-1 h-4 w-px bg-border" />
-        {SLOT_NOTE_KINDS.map((k) => (
+        {compact && !showKinds ? (
+          <button onClick={() => setShowKinds(true)} className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs text-slate-700">
+            + Remarque…
+          </button>
+        ) : SLOT_NOTE_KINDS.map((k) => (
           <button
             key={k}
             onClick={() => setPendingKind(pendingKind === k ? null : k)}
@@ -268,5 +306,30 @@ function DayNote({ date }: { date: string }): React.JSX.Element {
         className="min-h-28"
       />
     </div>
+  )
+}
+
+function SlotThumbs({ slotId, count }: { slotId: number; count: number }): React.JSX.Element {
+  const [images, setImages] = useState<SlotImage[]>([])
+  const urls = useImageUrls(images)
+  const [zoom, setZoom] = useState<string | null>(null)
+  useEffect(() => {
+    void tryCall('journal:images', slotId).then((i) => i && setImages(i))
+  }, [slotId, count])
+  return (
+    <>
+      <div className="mt-2 flex flex-wrap gap-2">
+        {images.map((i) => (
+          <button key={i.id} onClick={() => setZoom(urls.get(i.id) ?? null)} className="overflow-hidden rounded-md border">
+            <img src={urls.get(i.id)} alt="" className="h-20 object-cover" />
+          </button>
+        ))}
+      </div>
+      {zoom && (
+        <button className="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 p-6" onClick={() => setZoom(null)} aria-label="Fermer">
+          <img src={zoom} alt="" className="max-h-full max-w-full rounded-lg" />
+        </button>
+      )}
+    </>
   )
 }

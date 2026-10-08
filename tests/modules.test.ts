@@ -29,7 +29,7 @@ const subject = (short: string): number =>
 
 const seqInput = (over: Partial<SequenceInput> = {}): SequenceInput => ({
   subject_id: subject('Français'), period_id: prep.listClassPeriods(db, classId)[1].id, title: 'Le conte',
-  levels: ['CE2'], socle_domain: 'D1.1', general_objectives: 'Lire des contes', prerequisites: '',
+  levels: ["CE2"], socle_domain: "D1.1", general_objectives: 'Lire des contes', prerequisites: '',
   planned_sessions_count: 6, success_criteria: '', final_assessment: '', notes: '', ...over
 })
 
@@ -142,5 +142,59 @@ describe('élèves', () => {
     eraseStudent(db, classId, s.id!)
     expect(db.prepare('SELECT count(*) c FROM student_observations').get()).toEqual({ c: 0 })
     expect(db.prepare('SELECT count(*) c FROM student_health').get()).toEqual({ c: 0 })
+  })
+})
+
+describe('référentiel maternelle', () => {
+  it('rattache chaque objectif du programme à un domaine', () => {
+    const total = db.prepare('SELECT count(*) AS c FROM competencies').get() as { c: number }
+    const orphan = db.prepare('SELECT count(*) AS c FROM competencies WHERE subject_id IS NULL').get() as { c: number }
+    expect(total.c).toBeGreaterThan(350)
+    expect(orphan.c).toBe(0)
+    const levels = db.prepare('SELECT DISTINCT level FROM competencies ORDER BY level').all()
+    expect(levels).toEqual([{ level: 'GS' }, { level: 'MS' }, { level: 'PS' }])
+  })
+})
+
+describe('cahier journal : groupes, activités et photos', () => {
+  it('enregistre le groupe, les activités et des photos (incluses dans la sauvegarde)', async () => {
+    const { createPayload, restoreBackup } = await import('../src/main/services/backupCore')
+    const slot = journal.createSlot(db, classId, {
+      date: '2026-10-09', start_time: '09:05', end_time: '09:35', subject_id: null, title: 'Atelier dirigé avec PE',
+      socle_domain: null, lesson_id: null, audience: 'GS', activities: 'Dénombrer des quantités jusqu’à 5'
+    })
+    expect(slot).toMatchObject({ audience: 'GS', activities: 'Dénombrer des quantités jusqu’à 5', images_count: 0 })
+    const bytes = new Uint8Array([0xff, 0xd8, 0xff, 1, 2, 3])
+    journal.addSlotImage(db, classId, slot.id, { mime: 'image/jpeg', data: bytes })
+    expect(journal.getSlot(db, slot.id).images_count).toBe(1)
+    expect(Array.from(journal.listSlotImages(db, classId, slot.id)[0].data)).toEqual(Array.from(bytes))
+    expect(() => journal.addSlotImage(db, classId, slot.id, { mime: 'text/html', data: bytes })).toThrow()
+
+    const payload = JSON.parse(JSON.stringify(createPayload(db)))
+    journal.deleteSlot(db, classId, slot.id)
+    restoreBackup(db, payload)
+    expect(Array.from(journal.listSlotImages(db, classId, slot.id)[0].data)).toEqual(Array.from(bytes))
+  })
+
+  it('applique un emploi du temps importé avec des créneaux en parallèle', async () => {
+    const { replaceTimetable, applyTimetableToWeek } = await import('../src/main/repositories/timetable')
+    replaceTimetable(db, classId, [
+      { weekday: 5, start_time: '09:05', end_time: '09:35', subject: 'Multi-domaine', label: 'Ateliers avec ATSEM', audience: 'PS' },
+      { weekday: 5, start_time: '09:05', end_time: '09:35', subject: 'Outils maths', label: 'Atelier dirigé avec PE', audience: 'GS' },
+      { weekday: 5, start_time: '09:05', end_time: '09:35', subject: 'Langage', label: 'Atelier autonome', audience: 'GS' }
+    ])
+    expect(applyTimetableToWeek(db, classId, '2026-10-05', [5])).toBe(3)
+    expect(applyTimetableToWeek(db, classId, '2026-10-05', [5])).toBe(0)
+    const slots = journal.listSlots(db, classId, '2026-10-09', '2026-10-09')
+    expect(slots.map((s) => s.audience)).toEqual(['GS', 'GS', 'PS'])
+    expect(slots.find((s) => s.audience === 'PS')?.subject_short).toBe('Multi-domaine')
+  })
+
+  it('associe des objectifs du programme à une séquence', () => {
+    const ids = (db.prepare('SELECT id FROM competencies LIMIT 3').all() as { id: number }[]).map((r) => r.id)
+    const seq = prep.createSequence(db, classId, seqInput({ competency_ids: ids }))
+    expect(seq.competency_ids).toEqual(ids)
+    const updated = prep.updateSequence(db, classId, seq.id, { ...seqInput(), competency_ids: [ids[0]] })
+    expect(updated.competency_ids).toEqual([ids[0]])
   })
 })

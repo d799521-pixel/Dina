@@ -1,5 +1,6 @@
 import type { Period, SchoolClass } from '@shared/types'
 import type { DB } from '../db/types'
+import { ValidationError } from '../validation'
 import { getSetting, setSetting } from './settings'
 
 interface ClassRow {
@@ -46,4 +47,15 @@ export function listPeriods(db: DB, schoolYearId: number): Period[] {
   return db
     .prepare('SELECT * FROM periods WHERE school_year_id = ? ORDER BY number')
     .all(schoolYearId) as Period[]
+}
+
+/** Modifie le nom et les niveaux de la classe ; active ou masque les domaines de maternelle. */
+export function updateClass(db: DB, classId: number, name: string, levels: string[]): SchoolClass {
+  const n = String(name ?? '').trim()
+  if (!n) throw new ValidationError('Le nom de la classe est obligatoire')
+  if (!Array.isArray(levels) || levels.some((l) => typeof l !== 'string')) throw new ValidationError('Niveaux invalides')
+  db.prepare('UPDATE classes SET name = ?, levels = ? WHERE id = ?').run(n, JSON.stringify(levels), classId)
+  const maternelle = levels.some((l) => MATERNELLE.includes(l)) ? 0 : 1
+  db.prepare('UPDATE subjects SET archived = ? WHERE position >= 100').run(maternelle)
+  return getCurrentClass(db)!
 }

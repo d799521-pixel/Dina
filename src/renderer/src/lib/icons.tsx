@@ -1,6 +1,10 @@
 import {
   BookOpen,
   Calculator,
+  Clock,
+  Layers,
+  Moon,
+  Utensils,
   Coffee,
   Dumbbell,
   FlaskConical,
@@ -21,6 +25,10 @@ import {
 export const SUBJECT_ICONS: Record<string, LucideIcon> = {
   'book-open': BookOpen,
   calculator: Calculator,
+  clock: Clock,
+  layers: Layers,
+  moon: Moon,
+  utensils: Utensils,
   coffee: Coffee,
   dumbbell: Dumbbell,
   flask: FlaskConical,

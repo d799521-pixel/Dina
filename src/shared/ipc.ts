@@ -2,6 +2,10 @@ import type {
   AppSettings,
   Appointment,
   AppointmentInput,
+  Competency,
+  SchoolClass,
+  SlotImage,
+  TimetableImportSlot,
   CustomFont,
   DbStatus,
   JournalSlotInput,
@@ -53,6 +57,8 @@ export interface IpcContract {
   'ref:socle': () => SocleDomain[]
   'ref:lessons': () => LessonSummary[]
   'ref:students': () => StudentSummary[]
+  'ref:competencies': () => Competency[]
+  'class:update': (name: string, levels: string[]) => SchoolClass
 
   'journal:range': (from: string, to: string) => JournalSlotView[]
   'journal:create': (input: JournalSlotInput) => JournalSlotView
@@ -63,10 +69,14 @@ export interface IpcContract {
   'journal:delete-note': (noteId: number) => void
   'journal:day-note': (date: string) => string
   'journal:set-day-note': (date: string, content: string) => void
+  'journal:images': (slotId: number) => SlotImage[]
+  'journal:add-image': (slotId: number, image: { mime: string; data: Uint8Array; caption?: string }) => SlotImage
+  'journal:delete-image': (imageId: number) => void
 
   'timetable:get': () => TimetableSlot[]
   'timetable:save-week': (weekStart: string) => number
   'timetable:apply-week': (weekStart: string) => number
+  'timetable:replace': (slots: TimetableImportSlot[]) => number
 
   'appointments:range': (from: string, to: string) => Appointment[]
   'appointments:create': (input: AppointmentInput) => Appointment
@@ -127,10 +137,11 @@ export type Channel = keyof IpcContract
 export const CHANNELS: readonly Channel[] = [
   'db:status', 'db:unlock', 'db:setup', 'db:change-passphrase', 'db:lock',
   'settings:get', 'settings:update',
-  'ref:subjects', 'ref:socle', 'ref:lessons', 'ref:students',
+  'ref:subjects', 'ref:socle', 'ref:lessons', 'ref:students', 'ref:competencies', 'class:update',
   'journal:range', 'journal:create', 'journal:update', 'journal:delete',
   'journal:notes', 'journal:add-note', 'journal:delete-note', 'journal:day-note', 'journal:set-day-note',
-  'timetable:get', 'timetable:save-week', 'timetable:apply-week',
+  'journal:images', 'journal:add-image', 'journal:delete-image',
+  'timetable:get', 'timetable:save-week', 'timetable:apply-week', 'timetable:replace',
   'appointments:range', 'appointments:create', 'appointments:update', 'appointments:delete',
   'periods:list', 'periods:update',
   'sequences:list', 'sequences:create', 'sequences:update', 'sequences:delete',

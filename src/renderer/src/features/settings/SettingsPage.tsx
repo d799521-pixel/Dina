@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
-import { Download, KeyRound, Lock, Upload } from 'lucide-react'
-import { WEEKDAY_LABELS } from '@shared/labels'
+import { Download, FileInput, KeyRound, Lock, Save, Upload } from 'lucide-react'
+import { LEVELS, WEEKDAY_LABELS } from '@shared/labels'
 import type { AppSettings, DbStatus } from '@shared/types'
 import { Button } from '@/components/ui/button'
 import { Field, Input } from '@/components/ui/input'
 import { call, tryCall } from '@/lib/api'
 import { notify, notifyError } from '@/lib/toast'
+import { applyTemplate } from '@/lib/templates'
 import { cn } from '@/lib/utils'
+import { pickFile } from '@/web/files'
 
 function Section({ title, description, children }: { title: string; description?: string; children: React.ReactNode }): React.JSX.Element {
   return (
@@ -22,6 +24,32 @@ export function SettingsPage({ status, onStatusChange }: { status: DbStatus; onS
   const [settings, setSettings] = useState<AppSettings>()
   const [newPass, setNewPass] = useState('')
   const [backupPass, setBackupPass] = useState('')
+  const [className, setClassName] = useState(status.current_class?.name ?? '')
+  const [levels, setLevels] = useState<string[]>(status.current_class?.levels ?? [])
+
+  const saveClass = async (): Promise<void> => {
+    try {
+      await call('class:update', className, levels)
+      onStatusChange(await call('db:status'))
+      notify('Classe mise à jour.')
+    } catch (err) {
+      notifyError(err)
+    }
+  }
+
+  const importTemplate = async (): Promise<void> => {
+    const file = await pickFile('.json,application/json')
+    if (!file) return
+    try {
+      const raw = JSON.parse(await file.text()) as { timetable?: unknown[] }
+      const replace = Boolean(raw.timetable?.length) &&
+        window.confirm('Ce modèle contient un emploi du temps type : remplacer l’emploi du temps type actuel ?')
+      notify(await applyTemplate(raw, replace))
+      setSettings(await call('settings:get'))
+    } catch (err) {
+      notifyError(err)
+    }
+  }
 
   useEffect(() => {
     void tryCall('settings:get').then(setSettings)
@@ -60,6 +88,38 @@ export function SettingsPage({ status, onStatusChange }: { status: DbStatus; onS
     <div className="h-full overflow-y-auto">
       <div className="mx-auto flex max-w-3xl flex-col gap-5 p-8">
         <h1 className="text-2xl font-semibold">Paramètres</h1>
+
+        <Section title="Classe">
+          <div className="flex flex-wrap items-end gap-3">
+            <Field label="Nom de la classe" className="w-72">
+              <Input value={className} onChange={(e) => setClassName(e.target.value)} />
+            </Field>
+            <Button onClick={saveClass} disabled={!className.trim()}>
+              <Save /> Enregistrer
+            </Button>
+          </div>
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {LEVELS.map((l) => (
+              <button
+                key={l}
+                onClick={() => setLevels((ls) => (ls.includes(l) ? ls.filter((x) => x !== l) : [...ls, l]))}
+                className={cn('rounded-full border px-3 py-1 text-xs', levels.includes(l) ? 'border-primary bg-primary text-primary-foreground' : 'hover:bg-accent')}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
+          <p className="mt-2 text-xs text-muted-foreground">Avec un niveau de maternelle, les domaines du programme 2024-2026 et les temps propres à la maternelle (regroupement, sieste…) sont proposés.</p>
+        </Section>
+
+        <Section
+          title="Importer un modèle"
+          description="Fichier .json préparé pour Dina : emploi du temps type, progressions d’un manuel, jours de classe."
+        >
+          <Button variant="outline" onClick={importTemplate}>
+            <FileInput /> Choisir un fichier modèle
+          </Button>
+        </Section>
 
         {settings && (
           <Section title="Semaine de classe">

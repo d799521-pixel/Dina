@@ -136,11 +136,13 @@ function SlotBlock({ slot, style, onClick }: { slot: JournalSlotView; style: Rea
         slot.status === 'annule' && 'opacity-50 line-through'
       )}
       style={{ ...style, borderLeftColor: slot.subject_color ?? '#64748b', background: alpha(slot.subject_color, 0.12) }}
-      title={`${frTime(slot.start_time)}–${frTime(slot.end_time)} · ${slot.subject_name ?? ''} ${slot.title}`}
+      title={`${frTime(slot.start_time)}–${frTime(slot.end_time)} · ${slot.audience ? slot.audience + ' : ' : ''}${slot.subject_name ?? ''} ${slot.title}`}
     >
       <div className="flex items-center gap-1 font-medium" style={{ color: slot.subject_color ?? undefined }}>
         <SubjectIcon icon={slot.subject_icon} className="size-3 shrink-0" />
-        <span className="truncate">{slot.subject_short ?? 'Créneau'}</span>
+        <span className="truncate">
+          {slot.audience && <b className="mr-0.5">{slot.audience}</b>} {slot.subject_short ?? 'Créneau'}
+        </span>
         <span className="ml-auto flex shrink-0 items-center gap-0.5 text-muted-foreground">
           {slot.lesson_id && <BookMarked className="size-3" aria-label="Fiche de préparation liée" />}
           {slot.notes_count > 0 && (
@@ -155,7 +157,7 @@ function SlotBlock({ slot, style, onClick }: { slot: JournalSlotView; style: Rea
           {slot.status === 'annule' && <CircleSlash className="size-3" aria-label="Annulé" />}
         </span>
       </div>
-      {!compact && <div className="truncate text-foreground/80">{slot.title || slot.lesson_title}</div>}
+      {!compact && <div className="truncate text-foreground/80">{slot.title || slot.lesson_title || slot.activities}</div>}
     </button>
   )
 }

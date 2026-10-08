@@ -1,5 +1,6 @@
 import * as m001 from './001_initial'
 import * as m002 from './002_referentials'
+import * as m003 from './003_maternelle'
 
 export interface Migration {
   version: number
@@ -13,5 +14,6 @@ export interface Migration {
  */
 export const migrations: Migration[] = [
   { version: 1, name: 'initial', up: m001.up },
-  { version: 2, name: 'referentials', up: m002.up }
+  { version: 2, name: 'referentials', up: m002.up },
+  { version: 3, name: 'maternelle', up: m003.up }
 ]

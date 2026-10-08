@@ -1,0 +1,2827 @@
+{
+ "source": "Programme d’enseignement de l’école maternelle — BO n° 41 du 31 octobre 2024 et BO n° 19 du 7 mai 2026 (texte consolidé).",
+ "licence": "Licence Ouverte (Etalab)",
+ "objectives": [
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Acquérir le langage oral",
+   "level": "PS",
+   "label": "Comprendre, mémoriser, réemployer les mots des corpus enseignés (2 par période)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Acquérir le langage oral",
+   "level": "PS",
+   "label": "Organiser les mots en catégorie et en réseau."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Acquérir le langage oral",
+   "level": "MS",
+   "label": "Comprendre, mémoriser, réemployer les mots des corpus enseignés (2 par période)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Acquérir le langage oral",
+   "level": "MS",
+   "label": "Organiser les mots en catégorie et en réseau."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Acquérir le langage oral",
+   "level": "GS",
+   "label": "Comprendre, mémoriser, réemployer les mots des corpus enseignés (3 par période)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Acquérir le langage oral",
+   "level": "GS",
+   "label": "Organiser les mots en catégorie et en réseau."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Développer sa syntaxe",
+   "level": "PS",
+   "label": "Diversifier les pronoms employés."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Développer sa syntaxe",
+   "level": "PS",
+   "label": "Construire à l’oral un système de temps de plus en plus efficace."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Développer sa syntaxe",
+   "level": "PS",
+   "label": "Formuler des énoncés de plus en plus complexes."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Développer sa syntaxe",
+   "level": "MS",
+   "label": "Diversifier les pronoms employés."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Développer sa syntaxe",
+   "level": "MS",
+   "label": "Construire à l’oral un système de temps de plus en plus efficace."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Développer sa syntaxe",
+   "level": "MS",
+   "label": "Formuler des énoncés de plus en plus complexes."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Développer sa syntaxe",
+   "level": "GS",
+   "label": "Diversifier les pronoms employés."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Développer sa syntaxe",
+   "level": "GS",
+   "label": "Construire à l’oral un système de temps de plus en plus efficace."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Développer sa syntaxe",
+   "level": "GS",
+   "label": "Formuler des énoncés de plus en plus complexes."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "PS",
+   "label": "Articuler distinctement les couples de consonnes proches suivants : t/k, f/s, m/n."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "MS",
+   "label": "Distinguer et produire correctement les nasales : é/in, a/an, o/on."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "MS",
+   "label": "Articuler distinctement les couples de consonnes proches suivants : f/v, s/z, p/b, t/d, k/g."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "GS",
+   "label": "Prononcer correctement les couples de consonnes proches suivants : ch/s, ch/j, ch/z."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "GS",
+   "label": "Prononcer correctement les doubles consonnes : br/cr/bl/pl/sl."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "PS",
+   "label": "Entrer en communication verbale avec un adulte ou un autre élève."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "PS",
+   "label": "Dire ce qu’on fait."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "PS",
+   "label": "Dire ce qu’on a fait et, peu à peu, ce qu’on va faire."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "PS",
+   "label": "Prendre part à l’oralisation d’un court texte mémorisé."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "MS",
+   "label": "Dire ce qu’on va faire."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "MS",
+   "label": "Dire comment on a fait ou comment on va faire."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "MS",
+   "label": "Oraliser un court texte mémorisé."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "MS",
+   "label": "Participer à des échanges en restant dans le propos."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "GS",
+   "label": "Décrire une action ou une activité qui a été menée par un autre élève."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "GS",
+   "label": "Se faire comprendre, par le truchement du langage, d’un adulte qui ne connait rien à la situation évoquée."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "GS",
+   "label": "Participer à une conversation avec un adulte ou des pairs et reformuler son propos s’il n’a pas été compris."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Acquérir le langage oral",
+   "skill": "Articuler distinctement",
+   "level": "GS",
+   "label": "Émettre une hypothèse."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "PS",
+   "label": "Identifier les sons de la langue, lors de situations d’écoute proposées par le professeur."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "PS",
+   "label": "Identifier un mot donné à l’oral dans une phrase, dans un texte."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Manipuler des syllabes orales puis des phonèmes",
+   "level": "PS",
+   "label": "Scander les syllabes d’un mot."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Manipuler des syllabes orales puis des phonèmes",
+   "level": "PS",
+   "label": "Dire des comptines courtes comprenant des phonèmes proches."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Manipuler des syllabes orales puis des phonèmes",
+   "level": "PS",
+   "label": "Reconnaitre et nommer certaines lettres de son prénom écrit en capitales."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "MS",
+   "label": "Utiliser la voix parlée, chantée et les possibilités vocales (imitation de sons, onomatopées) afin d’expérimenter différents sons."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "MS",
+   "label": "Entendre, discriminer des phonèmes."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Manipuler des syllabes orales puis des phonèmes",
+   "level": "MS",
+   "label": "Scander les syllabes d’un mot."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Manipuler des syllabes orales puis des phonèmes",
+   "level": "MS",
+   "label": "Manipuler les syllabes d’un mot (ajout, suppression, permutation, répétition, fusion, substitution)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Manipuler des syllabes orales puis des phonèmes",
+   "level": "MS",
+   "label": "Dire des comptines courtes comprenant des phonèmes proches."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Connaitre le nom des lettres",
+   "level": "MS",
+   "label": "Nommer les lettres de son prénom et quelques lettres de mots connus (le professeur nomme systématiquement les lettres)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Connaitre le nom des lettres",
+   "level": "MS",
+   "label": "Connaitre la correspondance entre les lettres scriptes majuscules et minuscules et les lettres cursives minuscules."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Connaitre le son des lettres",
+   "level": "MS",
+   "label": "Donner les valeurs sonores de quelques lettres de mots simples connus."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "GS",
+   "label": "Utiliser les possibilités sonores de la voix."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "GS",
+   "label": "Augmenter sa mémoire auditive et sa capacité de concentration."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "GS",
+   "label": "Supprimer, ajouter, remplacer, inverser, substituer, fusionner les syllabes d’un mot."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "GS",
+   "label": "Repérer et produire des rimes et des assonances."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "GS",
+   "label": "Entendre, discriminer, manipuler des phonèmes."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Connaitre le nom des lettres",
+   "level": "GS",
+   "label": "Connaitre le nom des lettres de l’alphabet."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Connaitre le nom des lettres",
+   "level": "GS",
+   "label": "Connaitre les différentes graphies d’une même lettre (majuscule lettre capitale ; minuscules scriptes ; cursives)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Connaitre le nom des lettres",
+   "level": "GS",
+   "label": "Distinguer des lettres visuellement proches (b/d, c/e/o, p/q) grâce à leur écriture cursive et les nommer correctement."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Connaitre le son des lettres",
+   "level": "GS",
+   "label": "Connaitre le nom des lettres de l’alphabet et leur valeur sonore hormis les occlusives."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Connaitre le son des lettres",
+   "level": "GS",
+   "label": "Discriminer des mots auditivement proches."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "PS",
+   "label": "Écouter des chants, des comptines, des histoires connues dans des versions en français et en langue étrangère."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "MS",
+   "label": "Participer à des jeux dans une autre langue : jeux de doigts, rondes, jeux dansés, mimes, jeux de cour, jeux de cartes."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Écouter, identifier, discriminer et reproduire des sons",
+   "level": "MS",
+   "label": "Comparer des histoires lues en français et dans une autre langue."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Découvrir les supports de l’écrit",
+   "level": "PS",
+   "label": "Repérer les outils fonctionnels utilisés quotidiennement en classe (étiquette du prénom, emploi du temps, chanter, affiches, etc.)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Découvrir les supports de l’écrit",
+   "level": "PS",
+   "label": "Reconnaitre quelques écrits utilisés et produits en classe (comptines, recettes, carnet de lecteur)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Comprendre des textes lus par le professeur",
+   "level": "PS",
+   "label": "Reconnaitre un personnage, le nommer et le situer dans les illustrations."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Comprendre des textes lus par le professeur",
+   "level": "PS",
+   "label": "Comprendre des histoires où l’enchainement des actions peut être rattaché à des expériences connues de la vie quotidienne (le bain, le coucher, etc.)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Découvrir les supports de l’écrit",
+   "level": "MS",
+   "label": "Reconnaitre, nommer et identifier la fonction de différents écrits rencontrés dans la vie courante."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Découvrir les supports de l’écrit",
+   "level": "MS",
+   "label": "Prendre conscience de la notion de destinataire et de contenu de la requête adressée par un écrit."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Découvrir les supports de l’écrit",
+   "level": "MS",
+   "label": "Identifier et utiliser quotidiennement des outils fonctionnels pour se repérer, s’organiser, ranger."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Comprendre des textes lus par le professeur",
+   "level": "MS",
+   "label": "Identifier et décrire le personnage principal et les personnages secondaires."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Comprendre des textes lus par le professeur",
+   "level": "MS",
+   "label": "Comprendre des histoires dont les actions sont organisées autour d’une structure répétitive (rencontres successives) et commencer à comprendre les informations implicites (émotions, états et sentiments des personnages)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Découvrir les supports de l’écrit",
+   "level": "GS",
+   "label": "Différencier les types d’écrits et associer un écrit à un projet d’écriture ou de communication."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Découvrir les supports de l’écrit",
+   "level": "GS",
+   "label": "Repérer et dégager la structure et l’organisation (mise en page, typographie) de formes d’écrits fréquemment utilisés en classe (structure de la lettre, de la recette, conte, d’un écrit documentaire, d’une notice de fabrication)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Comprendre des textes lus par le professeur",
+   "level": "GS",
+   "label": "Construire les caractéristiques des personnages archétypaux (loup, princesse, ogre, sorcière, renard, fée, etc.)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Comprendre des textes lus par le professeur",
+   "level": "GS",
+   "label": "Comprendre des histoires où l’enchainement des actions est lié au destin de personnages centraux ou secondaires qui évoluent et interagissent, dans des lieux diversifiés."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Comprendre des textes lus par le professeur",
+   "level": "GS",
+   "label": "Comprendre les émotions, les intentions et les sentiments qui animent les personnages."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à lire",
+   "skill": "Comprendre des textes lus par le professeur",
+   "level": "GS",
+   "label": "Établir un lien entre la lecture effectuée et sa propre expérience."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "PS",
+   "label": "Participer aux activités de motricité générale, de motricité fine et aux exercices de graphismes ;"
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "PS",
+   "label": "Guider son geste par le regard lorsqu’il trace ou écrit ;"
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "PS",
+   "label": "Prendre des repères spatiaux sur le support utilisé pour tracer."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "MS",
+   "label": "Adopter une posture adaptée au geste d’écriture."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "MS",
+   "label": "Adopter une préhension correcte du stylo et s’entrainer à ne pas le lever en écrivant."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "MS",
+   "label": "Utiliser de façon coordonnée les quatre articulations qui servent à tenir et guider le crayon (épaule, coude, poignet, doigts)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "MS",
+   "label": "Tracer des lettres capitales."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "MS",
+   "label": "S’initier aux tracés de l’écriture cursive."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Tenir correctement son stylo par la pince des doigts et utiliser de façon coordonnée les quatre articulations (épaule, coude, poignet, doigts)."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Travailler la ligature entre deux lettres."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Tracer des lettres en écriture cursive, les enchainer."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "PS",
+   "label": "Percevoir que l’écrit encode l’oral."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "PS",
+   "label": "Utiliser un support écrit connu."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Produire des écrits",
+   "level": "PS",
+   "label": "Mimer la posture et les gestes d’écriture de l’adulte lors de la production de traces qui s’apparentent à de professeur l’écriture."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Produire des écrits",
+   "level": "PS",
+   "label": "Tracer volontairement des signes abstraits dont on comprend qu’il ne s’agit pas de dessins, mais de lettres."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "MS",
+   "label": "Comprendre que lorsque l’adulte lit un même écrit plusieurs fois, ce qu’il lit est toujours identique."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "MS",
+   "label": "Comprendre que l’écrit code des sons."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "MS",
+   "label": "Proposer au professeur, lors d’une activité de dictée à l’adulte, le contenu d’un court message, stabiliser un énoncé oral et le mémoriser pour pouvoir ensuite le dicter au professeur."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "MS",
+   "label": "Comparer la longueur d’un texte écrit et la durée du texte entendu."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "MS",
+   "label": "Savoir que le sens de la lecture est de gauche à droite et de haut en bas."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Produire des écrits",
+   "level": "MS",
+   "label": "Chercher parmi les outils à sa disposition des modèles qui seront réutilisés dans un essai d’écriture."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Segmenter l’oral en mots, les mots en syllabes, quelques syllabes en phonèmes."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Comprendre que l’écrit encode l’oral et que les sons de la langue sont codés par des lettres."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Suivre la trace écrite des yeux lors d’une relecture par l’adulte d’un message produit lors d’une dictée à l’adulte."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Mémoriser la graphie d’un mot transparent, en s’appuyant sur la connaissance des lettres et la conscience phonologique et le retranscrire sur un support."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Réinvestir ses premières connaissances relatives au principe alphabétique pour produire un écrit."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Se repérer dans l’alphabet pour retrouver l’écriture d’une lettre nécessaire pour produire un écrit."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Mémoriser l’écriture de mots transparents ou de syllabes connues pour les réutiliser dans une production d’écrit."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Comprendre qu’il existe une norme pour écrire : ponctuation, majuscules, mise en page, etc."
+  },
+  {
+   "domain": "Développement et structuration du langage oral et écrit",
+   "area": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "skill": "Passer de l’oral à l’écrit : se préparer à apprendre à écrire",
+   "level": "GS",
+   "label": "Persévérer pour mener la production d’écrit à son terme : préparation, énonciation et révision."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "PS",
+   "label": "Manipuler et lancer des objets avec des intentions motrices différentes."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "PS",
+   "label": "Courir de manière variée et coordonnée."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "PS",
+   "label": "Sauter sans élan un obstacle."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "PS",
+   "label": "Se situer dans un espace proche et connu en utilisant des indices présents dans l’environnement."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "MS",
+   "label": "Lancer loin de manière coordonnée."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "MS",
+   "label": "Courir vite en ligne droite sur une distance ou une durée courte."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "MS",
+   "label": "Sauter sans élan plusieurs obstacles."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "MS",
+   "label": "Se situer dans un espace élargi et connu grâce à des indices prélevés dans l’environnement."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "GS",
+   "label": "Lancer loin et avec précision différents objets."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "GS",
+   "label": "Courir de plus en plus longtemps sans s’arrêter."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "GS",
+   "label": "Courir vite et franchir un obstacle sur une distance courte."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "GS",
+   "label": "Coordonner ses actions et ses déplacements pour lancer et pour sauter haut ou loin."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Se déplacer",
+   "skill": "Manipuler, courir, sauter, lancer, s’orienter",
+   "level": "GS",
+   "label": "Se situer dans un milieu moins connu grâce à des indices prélevés dans l’environnement."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Construire des équilibres",
+   "skill": "Tourner, se suspendre, se renverser, grimper, rouler, glisser, nager",
+   "level": "PS",
+   "label": "Développer de nouveaux équilibres par des modes de déplacement variés."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Construire des équilibres",
+   "skill": "Tourner, se suspendre, se renverser, grimper, rouler, glisser, nager",
+   "level": "PS",
+   "label": "Développer de nouveaux équilibres dans des environnements de pratiques inhabituels et sécurisés."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Construire des équilibres",
+   "skill": "Tourner, se suspendre, se renverser, grimper, rouler, glisser, nager",
+   "level": "MS",
+   "label": "Développer de nouveaux équilibres par des déplacements impliquant une perte de repères habituels."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Construire des équilibres",
+   "skill": "Tourner, se suspendre, se renverser, grimper, rouler, glisser, nager",
+   "level": "MS",
+   "label": "Comprendre l’intérêt des règles de sécurité dans des activités et environnements inhabituels."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Construire des équilibres",
+   "skill": "Tourner, se suspendre, se renverser, grimper, rouler, glisser, nager",
+   "level": "GS",
+   "label": "Construire de nouveaux équilibres par des déplacements impliquant une combinaison d’actions."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Construire des équilibres",
+   "skill": "Tourner, se suspendre, se renverser, grimper, rouler, glisser, nager",
+   "level": "GS",
+   "label": "Explorer le milieu aquatique et développer une nouvelle locomotion dans l’eau."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Construire des équilibres",
+   "skill": "Tourner, se suspendre, se renverser, grimper, rouler, glisser, nager",
+   "level": "GS",
+   "label": "Respecter les règles de sécurité pour soi et pour les autres."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "S’exprimer avec son corps",
+   "skill": "Explorer, s’exprimer, danser, observer",
+   "level": "PS",
+   "label": "Découvrir et explorer le mouvement comme vecteur d’expression."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "S’exprimer avec son corps",
+   "skill": "Explorer, s’exprimer, danser, observer",
+   "level": "PS",
+   "label": "Oser s’exprimer avec son corps seul et avec les autres en répondant à une consigne simple."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "S’exprimer avec son corps",
+   "skill": "Explorer, s’exprimer, danser, observer",
+   "level": "PS",
+   "label": "Observer pour produire et reproduire un ou plusieurs mouvements avec une intention d’expression."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "S’exprimer avec son corps",
+   "skill": "Explorer, s’exprimer, danser, observer",
+   "level": "MS",
+   "label": "Découvrir et explorer le geste dansé."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "S’exprimer avec son corps",
+   "skill": "Explorer, s’exprimer, danser, observer",
+   "level": "MS",
+   "label": "Découvrir l’espace scénique."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "S’exprimer avec son corps",
+   "skill": "Explorer, s’exprimer, danser, observer",
+   "level": "MS",
+   "label": "Développer une posture de spectateur et de spectatrice actifs."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "S’exprimer avec son corps",
+   "skill": "Explorer, s’exprimer, danser, observer",
+   "level": "GS",
+   "label": "Enrichir le geste dansé par de nouvelles coordinations motrices, issues également des arts du cirque."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "S’exprimer avec son corps",
+   "skill": "Explorer, s’exprimer, danser, observer",
+   "level": "GS",
+   "label": "Explorer l’ensemble de l’espace scénique en variant les inducteurs (objets, mondes sonores, modes de déplacements, etc.) pour créer des effets."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "S’exprimer avec son corps",
+   "skill": "Explorer, s’exprimer, danser, observer",
+   "level": "GS",
+   "label": "Danser, seul ou à plusieurs, en créant et en reproduisant un ou plusieurs gestes et déplacements."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "S’exprimer avec son corps",
+   "skill": "Explorer, s’exprimer, danser, observer",
+   "level": "GS",
+   "label": "Adopter une posture de spectateur et de spectatrice actifs."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Coopérer et s’opposer",
+   "skill": "Coopérer, s’opposer, respecter",
+   "level": "PS",
+   "label": "Comprendre et s’approprier un rôle dans les formes de jeu les plus simples."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Coopérer et s’opposer",
+   "skill": "Coopérer, s’opposer, respecter",
+   "level": "PS",
+   "label": "Explorer différents jeux moteurs vécus en interindividuel ou en collectif."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Coopérer et s’opposer",
+   "skill": "Coopérer, s’opposer, respecter",
+   "level": "PS",
+   "label": "Éprouver le plaisir de jouer dans le respect des autres et des règles communes."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Coopérer et s’opposer",
+   "skill": "Coopérer, s’opposer, respecter",
+   "level": "MS",
+   "label": "Jouer en coopérant."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Coopérer et s’opposer",
+   "skill": "Coopérer, s’opposer, respecter",
+   "level": "MS",
+   "label": "Jouer en exerçant des rôles différents : attaquant, attaquante et défenseur, défenseuse."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Coopérer et s’opposer",
+   "skill": "Coopérer, s’opposer, respecter",
+   "level": "MS",
+   "label": "Coopérer dans le respect des autres et des règles communes."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Coopérer et s’opposer",
+   "skill": "Coopérer, s’opposer, respecter",
+   "level": "GS",
+   "label": "Élaborer seul ou à plusieurs des stratégies pour gagner un jeu."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Coopérer et s’opposer",
+   "skill": "Coopérer, s’opposer, respecter",
+   "level": "GS",
+   "label": "Jouer en exerçant des rôles différents : attaquant, attaquante, défenseur, défenseuse et arbitre."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités physiques",
+   "area": "Coopérer et s’opposer",
+   "skill": "Coopérer, s’opposer, respecter",
+   "level": "GS",
+   "label": "Éprouver le plaisir de coopérer et de s’opposer dans le respect des autres et des règles communes."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Dessiner",
+   "level": "PS",
+   "label": "S’exercer au dessin pour développer son habileté motrice."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Dessiner",
+   "level": "PS",
+   "label": "S’exercer progressivement au dessin avec une intention de représentation."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Dessiner",
+   "level": "MS",
+   "label": "Expérimenter la diversité des outils, des supports, des matériaux et faire des choix."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Dessiner",
+   "level": "MS",
+   "label": "S’exercer au dessin avec une intention de représentation."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Dessiner",
+   "level": "GS",
+   "label": "Dessiner pour représenter sur la base d’un modèle."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Dessiner",
+   "level": "GS",
+   "label": "Dessiner pour représenter un personnage ou un évènement fictif."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Dessiner",
+   "level": "GS",
+   "label": "Participer à la réalisation d’une œuvre collective à partir d’une consigne ou d’un problème à résoudre."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Dessiner",
+   "level": "GS",
+   "label": "Utiliser le vocabulaire spécifique au dessin."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Arts visuels",
+   "level": "PS",
+   "label": "Explorer des gestes et commencer à les associer à des types de tracés précis."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Arts visuels",
+   "level": "PS",
+   "label": "Repérer des motifs graphiques issus de son environnement proche."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Arts visuels",
+   "level": "PS",
+   "label": "Découvrir des expressions graphiques dans des œuvres d’art."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Arts visuels",
+   "level": "MS",
+   "label": "Exercer et développer sa motricité fine."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Arts visuels",
+   "level": "MS",
+   "label": "Repérer des motifs graphiques issus de son environnement."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Arts visuels",
+   "level": "MS",
+   "label": "Reproduire et créer des motifs de plus en plus élaborés."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Arts visuels",
+   "level": "GS",
+   "label": "Transformer ou détourner des motifs du répertoire de la classe pour observer les effets produits."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Arts visuels",
+   "level": "GS",
+   "label": "Créer de nouveaux motifs."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Arts visuels",
+   "level": "GS",
+   "label": "Réaliser une composition à partir de plusieurs contraintes."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Réaliser des compositions planes ou en volume",
+   "level": "PS",
+   "label": "Explorer l’usage des outils et observer leurs effets sur le geste."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Réaliser des compositions planes ou en volume",
+   "level": "PS",
+   "label": "Utiliser différents médiums et observer leurs effets sur les couleurs, les formes et les volumes."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Réaliser des compositions planes ou en volume",
+   "level": "PS",
+   "label": "Expérimenter la résistance de certains matériaux."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Réaliser des compositions planes ou en volume",
+   "level": "PS",
+   "label": "Réaliser individuellement ou collectivement une production plastique en volume."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Réaliser des compositions planes ou en volume",
+   "level": "MS",
+   "label": "S’approprier les constituants plastiques (couleurs, formes, matières, rythmes, etc.)."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Réaliser des compositions planes ou en volume",
+   "level": "MS",
+   "label": "Réaliser une composition en deux ou trois dimensions en fonction d’un projet individuel ou collectif."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Réaliser des compositions planes ou en volume",
+   "level": "MS",
+   "label": "Découvrir différentes formes d’expression artistique."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Réaliser des compositions planes ou en volume",
+   "level": "GS",
+   "label": "Réaliser des compositions plastiques, seul ou en petit groupe, en choisissant et combinant des matériaux et en réinvestissant des techniques et des procédés."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Réaliser des compositions planes ou en volume",
+   "level": "GS",
+   "label": "Se familiariser avec différentes formes d’expression artistique."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Observer, comprendre et transformer des images",
+   "level": "PS",
+   "label": "Apprendre à regarder avec attention et à identifier des éléments visuels."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Observer, comprendre et transformer des images",
+   "level": "PS",
+   "label": "Découvrir quelques éléments constitutifs d’une illustration."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Observer, comprendre et transformer des images",
+   "level": "MS",
+   "label": "Différencier une image fixe d’une image animée."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Observer, comprendre et transformer des images",
+   "level": "MS",
+   "label": "Fabriquer des images à partir d’images existantes."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Observer, comprendre et transformer des images",
+   "level": "MS",
+   "label": "Identifier et nommer des éléments graphiques d’une illustration."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Observer, comprendre et transformer des images",
+   "level": "GS",
+   "label": "Différencier des types d’images (portrait, paysage, nature morte, etc.)."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Arts visuels",
+   "skill": "Observer, comprendre et transformer des images",
+   "level": "GS",
+   "label": "Identifier et nommer des éléments esthétiques d’une illustration."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Jouer avec sa voix et acquérir un répertoire de comptines et de chansons",
+   "level": "PS",
+   "label": "Dépasser les usages courants de la voix."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Jouer avec sa voix et acquérir un répertoire de comptines et de chansons",
+   "level": "PS",
+   "label": "Chanter en se faisant comprendre des autres."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Jouer avec sa voix et acquérir un répertoire de comptines et de chansons",
+   "level": "PS",
+   "label": "Dire ou chanter au moins cinq comptines."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Jouer avec sa voix et acquérir un répertoire de comptines et de chansons",
+   "level": "MS",
+   "label": "Découvrir et explorer la richesse de sa voix."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Jouer avec sa voix et acquérir un répertoire de comptines et de chansons",
+   "level": "MS",
+   "label": "Chanter en exprimant une émotion."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Jouer avec sa voix et acquérir un répertoire de comptines et de chansons",
+   "level": "MS",
+   "label": "Dire ou chanter au moins huit comptines ou chants, en réinvestissant les comptines apprises l’année précédente."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Jouer avec sa voix et acquérir un répertoire de comptines et de chansons",
+   "level": "GS",
+   "label": "Développer et affirmer son inventivité avec sa voix."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Jouer avec sa voix et acquérir un répertoire de comptines et de chansons",
+   "level": "GS",
+   "label": "Trouver sa place dans un collectif chantant."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Jouer avec sa voix et acquérir un répertoire de comptines et de chansons",
+   "level": "GS",
+   "label": "Dire ou chanter au moins dix comptines ou chants, en réinvestissant ceux appris les années antérieures."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "PS",
+   "label": "Explorer les possibilités sonores de son corps, d’objets et d’instruments."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "PS",
+   "label": "Découvrir les possibilités expressives de son corps, d’objets et d’instruments."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "PS",
+   "label": "Observer et commenter ce que font les camarades de classe pour produire des sons avec leur corps, des objets et des instruments."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "MS",
+   "label": "Produire des sons à partir de son corps, d’objets et d’instruments."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "MS",
+   "label": "Adapter son geste pour produire un son en fonction d’une consigne."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "MS",
+   "label": "Reproduire un rythme simple collectivement."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "GS",
+   "label": "Explorer le lien entre le son et le geste."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "GS",
+   "label": "Créer un paysage sonore en répondant à une consigne simple avec son corps, des objets ou des instruments."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "GS",
+   "label": "Créer collectivement une production musicale."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "PS",
+   "label": "Traduire la musique entendue en mouvements."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "PS",
+   "label": "Développer une posture d’écoute."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "MS",
+   "label": "Traduire la musique entendue en mouvements et en mots."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "MS",
+   "label": "Exprimer ses émotions après l’écoute d’un extrait musical."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "MS",
+   "label": "Découvrir au moins deux œuvres musicales patrimoniales."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "GS",
+   "label": "Traduire la musique entendue en dessin."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "GS",
+   "label": "Écouter une œuvre musicale patrimoniale pour repérer des éléments musicaux significatifs."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Les univers sonores",
+   "skill": "Les univers sonores",
+   "level": "GS",
+   "label": "Connaitre au moins trois œuvres musicales patrimoniales."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Pratiquer",
+   "level": "PS",
+   "label": "Découvrir différentes façons d’exprimer ses émotions par le corps."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Pratiquer",
+   "level": "PS",
+   "label": "Découvrir des rôles simples."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Pratiquer",
+   "level": "PS",
+   "label": "Découvrir le jeu dans une mise en scène collective."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Pratiquer",
+   "level": "MS",
+   "label": "Se familiariser avec l’expression des émotions par le corps et la voix."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Pratiquer",
+   "level": "MS",
+   "label": "Se familiariser avec des rôles simples."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Pratiquer",
+   "level": "MS",
+   "label": "Se familiariser avec le jeu dans une mise en scène collective."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Pratiquer",
+   "level": "GS",
+   "label": "Explorer des enchainements d’émotions par le corps et la voix."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Pratiquer",
+   "level": "GS",
+   "label": "Explorer des rôles simples."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Pratiquer",
+   "level": "GS",
+   "label": "Explorer le jeu dans une mise en scène collective."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Fréquenter et devenir spectateur et spectatrice",
+   "level": "PS",
+   "label": "Découvrir des œuvres adaptées."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Fréquenter et devenir spectateur et spectatrice",
+   "level": "PS",
+   "label": "Découvrir l’espace scénique."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Fréquenter et devenir spectateur et spectatrice",
+   "level": "MS",
+   "label": "Se familiariser avec l’espace scénique."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Fréquenter et devenir spectateur et spectatrice",
+   "level": "MS",
+   "label": "Se familiariser avec des œuvres adaptées."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Fréquenter et devenir spectateur et spectatrice",
+   "level": "MS",
+   "label": "Rencontrer des artistes."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Fréquenter et devenir spectateur et spectatrice",
+   "level": "GS",
+   "label": "Explorer l’espace scénique."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Fréquenter et devenir spectateur et spectatrice",
+   "level": "GS",
+   "label": "Explorer des œuvres adaptées."
+  },
+  {
+   "domain": "Agir, s’exprimer, comprendre à travers les activités artistiques",
+   "area": "Le spectacle vivant",
+   "skill": "Fréquenter et devenir spectateur et spectatrice",
+   "level": "GS",
+   "label": "Rencontrer des artistes et des professionnels."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "PS",
+   "label": "Comprendre qu’une quantité d’objets ne dépend ni de la nature de ces objets ni de leur organisation spatiale."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "PS",
+   "label": "Comprendre que : si on ajoute un objet à une collection, le nombre qui désigne sa quantité est le suivant dans l suite orale des noms des nombres dans la suite orale des noms des nombres, chaque nombre s’obtient en ajoutant un au nombre précédent."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "PS",
+   "label": "Dénombrer une collection d’objets (jusqu’à trois, voire quatre)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "PS",
+   "label": "Constituer une collection (jusqu’à trois, voire quatre objets) d’un cardinal donné."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "PS",
+   "label": "Comparer des quantités."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "PS",
+   "label": "Composer et décomposer des nombres (deux, trois, voire quatre)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "PS",
+   "label": "Manipuler et verbaliser des compositions et des décompositions de nombres. Cela permet d’installer le fait que, dans une composition, l’ordre ne compte pas ; ces compositions et décompositions permettent de dénombrer plus efficacement que par le comptage un à un."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "PS",
+   "label": "Associer une quantité, le nom d’un nombre et une écriture chiffrée."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "PS",
+   "label": "Connaitre la comptine numérique de un à six."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "MS",
+   "label": "Poursuivre la compréhension qu’une quantité d’objets ne dépend ni de leur nature ni de leur organisation spatiale."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "MS",
+   "label": "Poursuivre la compréhension des faits suivants : si on ajoute un objet à une collection, le nombre qui désigne sa quantité est le suivant dans la suite orale des noms des nombres ; dans la suite orale des nombres, chaque nombre s’obtient en ajoutant un au nombre précédent."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "MS",
+   "label": "Parcourir une collection en passant une et une seule fois par chacun de ses éléments."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Poursuivre la compréhension qu’une quantité d’objets ne dépend ni de la nature de ces objets ni de leur organisation spatiale."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Poursuivre la compréhension des faits suivants : si on ajoute un objet à une collection, le nombre qui désigne sa quantité est le suivant dans la suite orale des noms des nombres ; dans la suite orale des nombres, chaque nombre s’obtient en ajoutant un au nombre précédent."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Poursuivre les stratégies de parcours d’une collection en passant une et une seule fois par chacun de ses éléments."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Dénombrer une collection d’objets (jusqu’à dix, voire au-delà)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Constituer une collection d’un cardinal donné (jusqu’à dix, voire au- delà)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Comparer des quantités."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Composer et décomposer des nombres inférieurs ou égaux à dix, voire au-delà."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Manipuler et verbaliser des compositions et des décompositions de nombres. Cela permet d’installer le fait que, dans une composition, l’ordre ne compte pas."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Surcompter (c’est-à-dire compter de un en un à partir d’un nombre donné)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Associer une quantité, le nom d’un nombre et une écriture chiffrée."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Écrire en chiffres les nombres de un à dix."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Découvrir les nombres",
+   "level": "GS",
+   "label": "Connaitre et utiliser la comptine numérique jusqu’à trente."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Exprimer un rang ou une position par un nombre",
+   "level": "MS",
+   "label": "Comprendre la notion de rang."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Exprimer un rang ou une position par un nombre",
+   "level": "MS",
+   "label": "Déterminer l’effet d’un déplacement sur une position."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Exprimer un rang ou une position par un nombre",
+   "level": "MS",
+   "label": "Se familiariser avec le début de la bande numérique."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Exprimer un rang ou une position par un nombre",
+   "level": "GS",
+   "label": "Comprendre la notion de rang d’un objet."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Exprimer un rang ou une position par un nombre",
+   "level": "GS",
+   "label": "Déterminer l’effet d’un déplacement sur une position."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Exprimer un rang ou une position par un nombre",
+   "level": "GS",
+   "label": "Comprendre le lien entre un ajout et un avancement et celui entre un retrait et un recul."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Découvrir les nombres",
+   "skill": "Exprimer un rang ou une position par un nombre",
+   "level": "GS",
+   "label": "Construire la bande numérique jusqu’à dix."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "PS",
+   "label": "Recherche du tout ou d’une partie dans un problème de parties-tout."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "MS",
+   "label": "Rechercher le tout ou une partie dans un problème de parties-tout."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "MS",
+   "label": "Trouver une position finale à partir d’une position initiale et d’un déplacement sur une piste du type du jeu de l’oie ou sur la bande numérique."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "MS",
+   "label": "Rechercher le tout dans un problème de groupements."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "MS",
+   "label": "Rechercher la valeur d’une part dans un problème de partage équitable."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "GS",
+   "label": "Déterminer le tout ou une partie dans un problème de parties-tout (d’abord deux parties, puis éventuellement trois)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "GS",
+   "label": "Déterminer la quantité d’objets ayant été ajoutée ou retirée à une collection à partir de ses quantités initiale et finale."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "GS",
+   "label": "Déterminer la position finale (respectivement initiale) à partir de la position initiale (respectivement finale) et d’un déplacement sur une piste du type du jeu de l’oie ou sur la bande numérique."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "GS",
+   "label": "Déterminer le cardinal d’une collection à partir de celui d’une autre collection et de l’écart entre les deux."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "GS",
+   "label": "Déterminer le tout dans un problème de groupement d’objets."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Utiliser les nombres pour résoudre des problèmes",
+   "skill": "Utiliser les nombres pour résoudre des problèmes",
+   "level": "GS",
+   "label": "Déterminer la valeur d’une part dans un problème de partage équitable (avec éventuellement un reste)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer les solides et les formes planes",
+   "skill": "Explorer les solides et les formes planes",
+   "level": "PS",
+   "label": "Reconnaitre, trier et classer des objets selon leur forme. qu’un objet donné."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer les solides et les formes planes",
+   "skill": "Explorer les solides et les formes planes",
+   "level": "MS",
+   "label": "Reconnaitre et classer des solides (cube, boule, pyramide à base carrée, cylindre) et des formes géométriques planes (triangle, carré, disque)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer les solides et les formes planes",
+   "skill": "Explorer les solides et les formes planes",
+   "level": "MS",
+   "label": "Reproduire des assemblages de solides ou de formes planes (au maximum cinq)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer les solides et les formes planes",
+   "skill": "Explorer les solides et les formes planes",
+   "level": "GS",
+   "label": "Décrire quelques solides simples : cube, pavé, boule, pyramides à base carrée ou triangulaire, cylindre, cône."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer les solides et les formes planes",
+   "skill": "Explorer les solides et les formes planes",
+   "level": "GS",
+   "label": "Reconnaitre, trier et classer des formes géométriques planes, indépendamment d’autres critères comme la couleur, la taille, l’orientation."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer les solides et les formes planes",
+   "skill": "Explorer les solides et les formes planes",
+   "level": "GS",
+   "label": "Décrire et nommer quelques figures géométriques simples : carré, rectangle, triangle, disque."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer les solides et les formes planes",
+   "skill": "Explorer les solides et les formes planes",
+   "level": "GS",
+   "label": "Reproduire des assemblages de solides (au maximum cinq) et de formes planes (au maximum huit)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer les solides et les formes planes",
+   "skill": "Explorer les solides et les formes planes",
+   "level": "GS",
+   "label": "S’approprier la règle comme outil de tracé."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "PS",
+   "label": "Reconnaitre un objet de même longueur qu’un objet donné."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "PS",
+   "label": "Comparer des objets selon leur longueur."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "MS",
+   "label": "Comparer directement des longueurs d’objets rectilignes et verbaliser le résultat."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "MS",
+   "label": "Classer des objets rectilignes selon leur longueur."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "MS",
+   "label": "Ordonner des objets rectilignes selon leur longueur et verbaliser le résultat."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "MS",
+   "label": "Comparer les masses de deux objets."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "GS",
+   "label": "Comparer indirectement des longueurs d’objets rectilignes."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "GS",
+   "label": "Ordonner des objets rectilignes selon leur longueur (au maximum cinq)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "GS",
+   "label": "Produire un objet rectiligne de même longueur qu’un objet donné."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "GS",
+   "label": "Ordonner les masses de trois objets. - Verbaliser les résultats."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Explorer des grandeurs : la longueur, la masse",
+   "skill": "Explorer des grandeurs : la longueur, la masse",
+   "level": "GS",
+   "label": "Reconnaitre l’égalité de deux masses et verbaliser le résultat."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Se familiariser avec les motifs organisés",
+   "skill": "Se familiariser avec les motifs organisés",
+   "level": "PS",
+   "label": "Mémoriser un motif répétitif très simple."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Se familiariser avec les motifs organisés",
+   "skill": "Se familiariser avec les motifs organisés",
+   "level": "PS",
+   "label": "Reproduire un motif répétitif à l’identique."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Se familiariser avec les motifs organisés",
+   "skill": "Se familiariser avec les motifs organisés",
+   "level": "MS",
+   "label": "Mémoriser un motif répétitif simple."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Se familiariser avec les motifs organisés",
+   "skill": "Se familiariser avec les motifs organisés",
+   "level": "MS",
+   "label": "Reconnaitre un motif répétitif à ses régularités."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Se familiariser avec les motifs organisés",
+   "skill": "Se familiariser avec les motifs organisés",
+   "level": "MS",
+   "label": "Décrire oralement des motifs répétitifs simples de différentes natures, sans nécessairement recourir au vocabulaire spécialisé."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Se familiariser avec les motifs organisés",
+   "skill": "Se familiariser avec les motifs organisés",
+   "level": "MS",
+   "label": "Prolonger l’amorce d’un motif répétitif et verbaliser la règle de prolongement utilisée."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Se familiariser avec les motifs organisés",
+   "skill": "Se familiariser avec les motifs organisés",
+   "level": "GS",
+   "label": "Repérer et décrire oralement la structure d’un motif évolutif (par exemple relevant de la transcription formelle ABAABBAAABBB)."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Se familiariser avec les motifs organisés",
+   "skill": "Se familiariser avec les motifs organisés",
+   "level": "GS",
+   "label": "Identifier la structure d’un motif répétitif ou évolutif indépendamment des éléments physiques qui le composent."
+  },
+  {
+   "domain": "Acquisition des premiers outils mathématiques",
+   "area": "Se familiariser avec les motifs organisés",
+   "skill": "Se familiariser avec les motifs organisés",
+   "level": "GS",
+   "label": "Créer des motifs de différentes natures."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "PS",
+   "label": "Acquérir les premiers repères temporels."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "PS",
+   "label": "Identifier les principaux moments d’une journée."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "PS",
+   "label": "Connaitre quelques marqueurs temporels."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "PS",
+   "label": "Aborder la notion de saison à partir de quelques faits observables."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "MS",
+   "label": "Énoncer le moment de la journée où l’on se situe."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "MS",
+   "label": "Établir des jours qui servent de repères dans la semaine."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "MS",
+   "label": "Savoir que la semaine est une suite de sept jours."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "MS",
+   "label": "Employer le présent, le futur, le passé composé et commencer éventuellement à employer l’imparfait pour évoquer des évènements et les resituer dans le temps."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "GS",
+   "label": "Situer un évènement dans la semaine."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "GS",
+   "label": "Continuer à s’approprier les temps conjugués (futur simple et futur antérieur) et les jours pour situer les évènements dans la semaine et situer un évènement qui va se produire."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "GS",
+   "label": "Énoncer la date."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "GS",
+   "label": "Utiliser des mois qui servent de repères pour se situer dans l’année."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "GS",
+   "label": "Nommer la plupart des mois de l’année."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Se repérer dans le temps",
+   "level": "GS",
+   "label": "Connaitre les saisons."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "PS",
+   "label": "Situer des moments de la journée les uns par rapport aux autres et commencer à utiliser le présent, le passé composé, le présent à valeur de futur proche."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "PS",
+   "label": "Ordonner entre eux des moments rituels vécus."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "PS",
+   "label": "Comprendre et restituer le déroulement d’évènements quotidiens au sein d’une histoire simple."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "PS",
+   "label": "Se projeter dans l’action que l’on choisit d’effectuer."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "PS",
+   "label": "Commencer à planifier deux activités."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "MS",
+   "label": "Restituer la chronologie des actions majeures d’une histoire simple."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "MS",
+   "label": "Relater et expliquer une action, une procédure en utilisant de premiers connecteurs structurants afin d’inscrire les activités récurrentes de leur vie quotidienne dans le temps."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "GS",
+   "label": "Repérer les différentes étapes d’un processus ou d’un évènement vécu et les ordonner."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "GS",
+   "label": "Repérer l’antériorité d’une action par rapport à une autre dans un scénario: imparfait, plus-que-parfait, imparfait du verbe « aller » à valeur de futur proche dans le passé."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "GS",
+   "label": "Ordonner des évènements passés les uns par rapport aux autres, dans l’année scolaire."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "S’approprier la notion de chronologie",
+   "level": "GS",
+   "label": "Relater des évènements passés ou à venir qui indiquent la succession, l’antériorité, la postériorité et la simultanéité."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Construire la notion de durée",
+   "level": "PS",
+   "label": "Attendre avant d’obtenir ce que l’on souhaite."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Construire la notion de durée",
+   "level": "PS",
+   "label": "Repérer le début et la fin d’une activité."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Construire la notion de durée",
+   "level": "PS",
+   "label": "Connaitre quelques mots qui font référence à la durée."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Construire la notion de durée",
+   "level": "MS",
+   "label": "Percevoir que certaines durées sont stables."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Construire la notion de durée",
+   "level": "MS",
+   "label": "Enrichir le répertoire de mots qui font référence à la durée."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Construire la notion de durée",
+   "level": "GS",
+   "label": "Commencer à utiliser les repères donnés par les professeurs pour organiser son activité dans un temps imparti."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Construire la notion de durée",
+   "level": "GS",
+   "label": "Comparer des durées."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans le temps",
+   "skill": "Construire la notion de durée",
+   "level": "GS",
+   "label": "Comprendre progressivement qu’il existe un temps long, un passé très éloigné, des évènements antérieurs à notre propre vie."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "PS",
+   "label": "Réaliser des constructions simples à partir de pièces solides ou de formes planes."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "PS",
+   "label": "Orienter un objet ou une forme."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "PS",
+   "label": "Manipuler des objets volumineux."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "PS",
+   "label": "Orienter un livre ou un autre support d’écrit."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "PS",
+   "label": "Réaliser un trajet, un parcours simple dans l’école."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "PS",
+   "label": "Expérimenter les effets sensoriels de la proximité et de l’éloignement."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "PS",
+   "label": "Acquérir les premiers marqueurs qui permettent de se repérer dans l’espace."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "MS",
+   "label": "Réaliser des constructions de pièces solides ou de formes planes à partir d’une contrainte."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "MS",
+   "label": "Situer des objets entre eux."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "MS",
+   "label": "Situer des objets par rapport à soi, différencier la proximité de l’éloignement."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "MS",
+   "label": "Orienter et utiliser correctement une feuille de papier."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "MS",
+   "label": "Se situer par rapport aux autres."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "MS",
+   "label": "Employer les marqueurs spatiaux précédemment acquis et en acquérir de nouveaux."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "GS",
+   "label": "Réaliser des assemblages complexes."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "GS",
+   "label": "Situer des objets dans un ensemble ordonné."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "GS",
+   "label": "Situer des objets par rapport à soi, construire une image orientée de son corps."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "GS",
+   "label": "Réaliser un trajet, un parcours dans un environnement connu."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "GS",
+   "label": "Utiliser une page en respectant les normes d’écriture."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "GS",
+   "label": "Reconnaitre quelques espaces géographiques sur un planisphère."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Faire l’expérience de l’espace",
+   "level": "GS",
+   "label": "Enrichir le lexique relatif à l’espace de mots plus complexes ou désignant un espace plus éloigné."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "PS",
+   "label": "Reproduire un parcours simple."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "PS",
+   "label": "Restituer un déplacement à l’aide de représentations diverses."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "MS",
+   "label": "Représenter un espace connu."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "MS",
+   "label": "Restituer oralement un déplacement à partir d’une représentation."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "MS",
+   "label": "Représenter un déplacement."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "MS",
+   "label": "Composer et représenter divers éléments."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "GS",
+   "label": "Reproduire un parcours sur une représentation plane."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "GS",
+   "label": "Représenter l’environnement proche."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "GS",
+   "label": "Restituer oralement un déplacement mémorisé."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "GS",
+   "label": "Représenter un déplacement."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "GS",
+   "label": "Représenter la proximité ou l’éloignement d’un sujet."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Représenter l’espace",
+   "level": "GS",
+   "label": "Représenter divers éléments sur un plan."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Découvrir l’environnement proche",
+   "level": "PS",
+   "label": "Explorer les différents lieux de l’école et leur associer des éléments caractéristiques observés."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Découvrir l’environnement proche",
+   "level": "MS",
+   "label": "Caractériser l’environnement extérieur proche de l’école."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Découvrir l’environnement proche",
+   "level": "MS",
+   "label": "Découvrir des espaces moins familiers."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Découvrir l’environnement proche",
+   "level": "GS",
+   "label": "Reconnaitre les espaces proches de l’école et leurs usages."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Découvrir l’environnement proche",
+   "level": "GS",
+   "label": "Reconnaitre des espaces moins familiers."
+  },
+  {
+   "domain": "Se repérer dans le temps et l’espace",
+   "area": "Se repérer dans l’espace",
+   "skill": "Découvrir l’environnement proche",
+   "level": "GS",
+   "label": "Observer l’habitat proche de l’école."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "PS",
+   "label": "Repérer et nommer les caractéristiques morphologiques générales des plantes et des animaux observés avec la classe."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "PS",
+   "label": "Reconnaitre et nommer le mâle et la femelle, le jeune et l'adulte pour plusieurs espèces animales."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "PS",
+   "label": "Prodiguer des soins nécessaires aux élevages et aux cultures."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "MS",
+   "label": "Reconnaitre une ou plusieurs étapes d’un cycle de vie à partir de l’observation d’animaux et de plantes."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "MS",
+   "label": "Identifier et décrire les besoins essentiels de quelques animaux et de végétaux à partir d'observations d'élevage, de cultures de plantes, et des soins prodigués."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "MS",
+   "label": "Observer et nommer le mode de déplacement de quelques animaux en relation avec leur milieu de vie."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "MS",
+   "label": "Respecter la vie sous toutes ses formes."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "GS",
+   "label": "Identifier des éléments morphologiques spécifiques à une espèce végétale ou animale."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "GS",
+   "label": "Reconnaitre les étapes de la vie d'un animal ou d'une plante."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "GS",
+   "label": "Décrire les besoins essentiels de quelques animaux ou de végétaux."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le monde du vivant",
+   "level": "GS",
+   "label": "Contribuer à une action collective favorable à la préservation de la biodiversité dans un milieu proche de l’école."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le corps humain et la santé",
+   "level": "PS",
+   "label": "Nommer et représenter quelques parties du corps humain."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le corps humain et la santé",
+   "level": "PS",
+   "label": "Découvrir les sens utilisés lors d’expériences sensorielles variées."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le corps humain et la santé",
+   "level": "PS",
+   "label": "Respecter quelques règles d’hygiène de vie, à l’invitation de l’adulte."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le corps humain et la santé",
+   "level": "MS",
+   "label": "Identifier et nommer les parties du corps humain."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le corps humain et la santé",
+   "level": "MS",
+   "label": "Identifier et nommer des organes sensoriels et les modalités de perception associées."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le corps humain et la santé",
+   "level": "MS",
+   "label": "Observer des changements liés à sa croissance."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le corps humain et la santé",
+   "level": "MS",
+   "label": "Connaitre quelques règles d’hygiène corporelle et de propreté."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le corps humain et la santé",
+   "level": "GS",
+   "label": "Identifier et nommer quelques articulations et la segmentation des membres."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le corps humain et la santé",
+   "level": "GS",
+   "label": "Se représenter avec un corps articulé en mouvement."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde du vivant",
+   "skill": "Découvrir le corps humain et la santé",
+   "level": "GS",
+   "label": "Connaitre quelques étapes de la vie d’un enfant jusqu’à six ans."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "PS",
+   "label": "Reconnaitre et comparer des matériaux usuels à partir de perceptions sensorielles."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "PS",
+   "label": "Repérer des transformations de matériaux sous l’effet d’actions mécaniques avec les mains ou avec des outils."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "PS",
+   "label": "Utiliser des objets, connaitre leur nom et leur fonction."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "PS",
+   "label": "Réaliser une construction, fabriquer un objet librement ou par un guidage pas à pas."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "MS",
+   "label": "Différencier des matériaux en fonction de leurs propriétés et différencier un objet du matériau qui le constitue."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "MS",
+   "label": "Désigner et utiliser des outils ou des objets adaptés à une situation et à une action technique."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "MS",
+   "label": "Réaliser une construction, fabriquer un objet à partir d’un modèle."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "MS",
+   "label": "Reproduire quelques gestes respectueux de l’environnement montrés par l’adulte."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "GS",
+   "label": "Associer une solution technique à une fonction technique."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "GS",
+   "label": "Fabriquer un objet en réponse à un besoin en exploitant des propriétés de matériaux ou des phénomènes physiques (équilibre, magnétisme, perméabilité, opacité ou transparence)."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les objets et les matériaux",
+   "level": "GS",
+   "label": "Explorer la notion de flottabilité avec des objets pleins constitués d’une seule et même matière :"
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "PS",
+   "label": "Explorer quelques caractéristiques des solides et des liquides."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "PS",
+   "label": "Constater les effets d’un déplacement d’air sur des objets ou sur soi-même."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "PS",
+   "label": "Réaliser et observer des mélanges."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "PS",
+   "label": "Découvrir et observer la fusion et la solidification de l’eau."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "MS",
+   "label": "Identifier une condition favorable à la fusion de la glace."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "MS",
+   "label": "Mettre en évidence la présence d’air en le mettant en mouvement."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "MS",
+   "label": "Distinguer les solides qui se dissolvent dans l’eau de ceux qui ne se dissolvent pas."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "GS",
+   "label": "Identifier et nommer l’état de l’eau dans différentes situations."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "GS",
+   "label": "Identifier la présence de l’air quand il est perceptible par les sens."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "GS",
+   "label": "Distinguer, parmi quelques solides, ceux qui peuvent se dissoudre dans l’eau."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "GS",
+   "label": "Commencer à agir de manière autonome pour le respect de l’environnement."
+  },
+  {
+   "domain": "Découvrir le monde du vivant, de la matière et des objets",
+   "area": "Découvrir le monde de la matière et des objets",
+   "skill": "Découvrir les états de la matière et les mélanges",
+   "level": "GS",
+   "label": "Prendre en compte les risques de l’environnement familier."
+  }
+ ]
+}

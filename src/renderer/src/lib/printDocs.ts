@@ -2,9 +2,11 @@
 // Aucun script, aucune ressource externe : polices système uniquement.
 
 import { ACCOMMODATION_LABELS, AUTHORIZATION_LABELS, WORK_MODE_LABELS, APPOINTMENT_LABELS } from '@shared/labels'
-import type { Lesson, SequenceListItem, StudentAppointment, StudentFile, StudentObservation, Subject } from '@shared/types'
+import type { JournalSlotView, Lesson, SequenceListItem, SlotImage, StudentAppointment, StudentFile, StudentObservation, Subject } from '@shared/types'
 import { today } from '@shared/date'
 import { fmt } from './format'
+import { toDataUrl } from './images'
+import { columns, overlapGroups } from './journalLayout'
 
 export const esc = (s: unknown): string =>
   String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!)
@@ -136,5 +138,87 @@ export function studentDocument(
         : ''
     }
     <footer>Édité le ${esc(fmt(today(), 'd MMMM yyyy'))} avec Dina — données conservées localement sur le poste de l’enseignant·e. Ne pas diffuser.</footer>`
+  )
+}
+
+const hhmm = (t: string): string => t.replace(':', 'h')
+
+function duration(start: string, end: string): string {
+  const [h1, m1] = start.split(':').map(Number)
+  const [h2, m2] = end.split(':').map(Number)
+  const min = h2 * 60 + m2 - (h1 * 60 + m1)
+  return min >= 60 ? `${Math.floor(min / 60)}h${min % 60 ? String(min % 60).padStart(2, '0') + 'min' : ''}` : `${min}min`
+}
+
+/**
+ * Cahier journal d'une journée, mis en page comme un cahier journal papier :
+ * horaire, intitulé, domaine, durée, activités et photos ; les créneaux
+ * simultanés (PS / GS, ateliers) sont présentés en colonnes.
+ */
+export function journalDayDocument(
+  date: string,
+  className: string,
+  slots: JournalSlotView[],
+  images: Map<number, SlotImage[]>,
+  dayNote: string
+): string {
+  const block = (s: JournalSlotView): string => {
+    const title = `${s.audience ? `${esc(s.audience)} : ` : ''}${esc(s.title || s.subject_name || 'Créneau')}`
+    const tag = s.subject_name && s.title ? `<span class="tag">${esc(s.subject_name)}</span>` : ''
+    const lesson = s.lesson_title
+      ? `<div class="act-title">${esc(s.lesson_title)}</div>${s.lesson_objective ? `<div class="obj">${esc(s.lesson_objective)}</div>` : ''}`
+      : ''
+    const acts = s.activities.trim() ? `<div class="acts">${esc(s.activities).replace(/\n/g, '<br>')}</div>` : ''
+    const imgs = (images.get(s.id) ?? []).map((i) => `<img src="${toDataUrl(i)}" alt="">`).join('')
+    return `<div class="blk${s.status === 'annule' ? ' cancelled' : ''}">
+      <div class="blk-head"><span class="t">${title}</span><span class="meta">${tag}<span class="dur">◷ ${duration(s.start_time, s.end_time)}</span></span></div>
+      ${lesson || acts ? `<div class="label">Activités :</div>${lesson}${acts}` : ''}
+      ${imgs ? `<div class="imgs">${imgs}</div>` : ''}
+      ${s.bilan.trim() ? `<div class="bilan"><b>Bilan :</b> ${esc(s.bilan)}</div>` : ''}
+    </div>`
+  }
+
+  const rows = overlapGroups(slots)
+    .map(
+      (g) => `<div class="row"><div class="time">${hhmm(g[0].start_time)}</div>
+        <div class="cols" style="grid-template-columns: repeat(${columns(g).length}, minmax(0, 1fr))">${columns(g)
+          .map((col) => `<div class="col">${col.map((s, i) => (i > 0 ? `<div class="sub-time">${hhmm(s.start_time)}</div>` : '') + block(s)).join('')}</div>`)
+          .join('')}</div></div>`
+    )
+    .join('')
+
+  return page(
+    `Cahier journal ${date}`,
+    `<style>
+      .cj-head { display: flex; align-items: baseline; gap: 10pt; border-bottom: 1.5pt solid #1f2937; padding-bottom: 4pt; margin-bottom: 4pt; }
+      .cj-title { font-size: 20pt; font-weight: 800; letter-spacing: -.02em; }
+      .cj-date { font-size: 12pt; font-weight: 600; }
+      .cj-class { margin-left: auto; color: #6b7280; font-size: 9pt; }
+      .row { display: grid; grid-template-columns: 34pt 1fr; border-bottom: .75pt solid #d1d5db; }
+      .blk { break-inside: avoid; }
+      .time { font-size: 8.5pt; color: #4b5563; padding: 5pt 0; }
+      .cols { display: grid; }
+      .col { border-left: .75pt solid #d1d5db; }
+      .col + .col { border-left: .75pt solid #9ca3af; }
+      .blk { padding: 5pt 6pt; }
+      .col .blk + .sub-time, .sub-time { font-size: 8pt; color: #4b5563; border-top: .75pt solid #d1d5db; padding: 3pt 6pt 0; }
+      .blk.cancelled { opacity: .45; text-decoration: line-through; }
+      .blk-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4pt; }
+      .t { font-weight: 700; text-decoration: underline; text-underline-offset: 2pt; }
+      .meta { display: inline-flex; gap: 6pt; align-items: center; margin-left: auto; }
+      .tag { background: #e5e7eb; border-radius: 8pt; padding: 1pt 6pt; font-size: 8pt; white-space: nowrap; }
+      .dur { font-size: 8.5pt; white-space: nowrap; }
+      .label { font-size: 8pt; font-weight: 700; margin-top: 4pt; }
+      .act-title { font-weight: 700; font-size: 11pt; }
+      .obj { font-size: 9pt; color: #374151; }
+      .acts { font-size: 9.5pt; }
+      .imgs { display: flex; flex-wrap: wrap; gap: 4pt; margin-top: 4pt; }
+      .imgs img { max-height: 42mm; max-width: 100%; object-fit: contain; border: .5pt solid #d1d5db; }
+      .bilan { margin-top: 4pt; font-size: 8.5pt; color: #374151; border-top: .5pt dashed #d1d5db; padding-top: 2pt; }
+      .note { margin-top: 10pt; font-size: 9.5pt; }
+    </style>
+    <div class="cj-head"><span class="cj-title">Cahier journal</span><span class="cj-date">${esc(fmt(date, 'EEEE d MMM yyyy'))}</span><span class="cj-class">${esc(className)}</span></div>
+    ${rows || '<p class="empty">Aucun créneau.</p>'}
+    ${dayNote.trim() ? `<div class="note"><b>Note du jour :</b> ${esc(dayNote).replace(/\n/g, '<br>')}</div>` : ''}`
   )
 }

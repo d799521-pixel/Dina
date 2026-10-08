@@ -57,17 +57,22 @@ export function updatePeriod(db: DB, classId: number, id: number, input: PeriodI
 
 // ------------------------------------------------------------------ Séquences
 
-type SequenceRow = Omit<SequenceListItem, 'levels'> & { levels: string }
+type SequenceRow = Omit<SequenceListItem, 'levels' | 'competency_ids'> & { levels: string; competency_ids: string | null }
 
 const SEQUENCE_LIST = /* sql */ `
   SELECT s.*, sub.name AS subject_name, sub.short_name AS subject_short, sub.color AS subject_color,
          sub.icon AS subject_icon, p.number AS period_number,
-         (SELECT count(*) FROM lessons l WHERE l.sequence_id = s.id) AS lessons_count
+         (SELECT count(*) FROM lessons l WHERE l.sequence_id = s.id) AS lessons_count,
+         (SELECT json_group_array(competency_id) FROM sequence_competencies x WHERE x.sequence_id = s.id) AS competency_ids
     FROM sequences s
     LEFT JOIN subjects sub ON sub.id = s.subject_id
     LEFT JOIN periods p ON p.id = s.period_id`
 
-const toSequence = (r: SequenceRow): SequenceListItem => ({ ...r, levels: JSON.parse(r.levels) as string[] })
+const toSequence = (r: SequenceRow): SequenceListItem => ({
+  ...r,
+  levels: JSON.parse(r.levels) as string[],
+  competency_ids: r.competency_ids ? (JSON.parse(r.competency_ids) as number[]) : []
+})
 
 export function listSequences(db: DB, classId: number): SequenceListItem[] {
   return (
@@ -101,7 +106,18 @@ function sequenceValues(input: SequenceInput): unknown[] {
   ]
 }
 
+function saveCompetencies(db: DB, sequenceId: number, ids: number[] | undefined): void {
+  if (ids === undefined) return
+  if (!Array.isArray(ids) || ids.length > 200) throw new ValidationError('Objectifs invalides')
+  db.prepare('DELETE FROM sequence_competencies WHERE sequence_id = ?').run(sequenceId)
+  const insert = db.prepare(
+    'INSERT OR IGNORE INTO sequence_competencies (sequence_id, competency_id) SELECT ?, id FROM competencies WHERE id = ?'
+  )
+  for (const id of ids) insert.run(sequenceId, assertId(id, 'objectif'))
+}
+
 export function createSequence(db: DB, classId: number, input: SequenceInput): SequenceListItem {
+  return db.transaction(() => {
   const { lastInsertRowid } = db
     .prepare(
       `INSERT INTO sequences (class_id, subject_id, period_id, title, levels, socle_domain, general_objectives,
@@ -109,7 +125,9 @@ export function createSequence(db: DB, classId: number, input: SequenceInput): S
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     )
     .run(classId, ...sequenceValues(input))
+  saveCompetencies(db, Number(lastInsertRowid), input.competency_ids)
   return getSequence(db, classId, Number(lastInsertRowid))
+  })()
 }
 
 export function updateSequence(db: DB, classId: number, id: number, input: SequenceInput): SequenceListItem {
@@ -124,6 +142,7 @@ export function updateSequence(db: DB, classId: number, id: number, input: Seque
   if (changes === 0) throw new ValidationError('Séquence introuvable')
   // Les séances suivent la matière de leur séquence.
   db.prepare('UPDATE lessons SET subject_id = ? WHERE sequence_id = ?').run(optionalId(input.subject_id), id)
+  saveCompetencies(db, id, input.competency_ids)
   return getSequence(db, classId, id)
 }
 

@@ -46,9 +46,33 @@ function userTables(db: DB): string[] {
   ).map((r) => r.name)
 }
 
+// Les données binaires (photos) sont encodées en base64 dans le JSON.
+function bytesToBase64(bytes: Uint8Array): string {
+  let s = ''
+  for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode(...bytes.subarray(i, i + 0x8000))
+  return btoa(s)
+}
+
+function base64ToBytes(b64: string): Uint8Array {
+  const s = atob(b64)
+  const out = new Uint8Array(s.length)
+  for (let i = 0; i < s.length; i++) out[i] = s.charCodeAt(i)
+  return out
+}
+
+const encodeRow = (row: Record<string, unknown>): Record<string, unknown> =>
+  Object.fromEntries(Object.entries(row).map(([k, v]) => [k, v instanceof Uint8Array ? { $bytes: bytesToBase64(v) } : v]))
+
+const decodeValue = (v: unknown): unknown =>
+  v && typeof v === 'object' && typeof (v as { $bytes?: unknown }).$bytes === 'string'
+    ? base64ToBytes((v as { $bytes: string }).$bytes)
+    : v
+
 export function createPayload(db: DB): BackupPayload {
   const tables: BackupPayload['tables'] = {}
-  for (const t of userTables(db)) tables[t] = db.prepare(`SELECT * FROM "${t}"`).all() as Record<string, unknown>[]
+  for (const t of userTables(db)) {
+    tables[t] = (db.prepare(`SELECT * FROM "${t}"`).all() as Record<string, unknown>[]).map(encodeRow)
+  }
   return {
     schema_version: db.pragma('user_version', { simple: true }) as number,
     exported_at: new Date().toISOString(),
@@ -74,7 +98,7 @@ export function restoreBackup(db: DB, payload: BackupPayload): void {
         const keys = Object.keys(row).filter((k) => columns.has(k))
         db.prepare(
           `INSERT INTO "${t}" (${keys.map((k) => `"${k}"`).join(', ')}) VALUES (${keys.map(() => '?').join(', ')})`
-        ).run(...keys.map((k) => row[k]))
+        ).run(...keys.map((k) => decodeValue(row[k])))
       }
     }
   })()

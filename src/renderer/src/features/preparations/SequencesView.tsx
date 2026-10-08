@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { BookMarked, Clock, FolderOpen, Layers, Plus, Save, Trash2 } from 'lucide-react'
-import type { LessonHeader, SequenceInput, SequenceListItem } from '@shared/types'
+import { BookMarked, Clock, FolderOpen, Layers, ListChecks, Plus, Save, Trash2, X } from 'lucide-react'
+import type { Competency, LessonHeader, SequenceInput, SequenceListItem } from '@shared/types'
 import { Button } from '@/components/ui/button'
 import { Field, Input, Select, Textarea } from '@/components/ui/input'
 import { Segmented } from '@/components/ui/segmented'
@@ -9,6 +9,7 @@ import { alpha } from '@/lib/format'
 import { SubjectIcon } from '@/lib/icons'
 import { notify, notifyError } from '@/lib/toast'
 import { cn } from '@/lib/utils'
+import { CompetencyPicker, loadCompetencies } from './CompetencyPicker'
 import { LessonEditor } from './LessonEditor'
 import { activeSubjects, type PrepRefs } from './PreparationsPage'
 
@@ -146,12 +147,13 @@ const EMPTY_SEQUENCE: SequenceInput = {
   planned_sessions_count: null,
   success_criteria: '',
   final_assessment: '',
-  notes: ''
+  notes: '',
+  competency_ids: []
 }
 
 function toInput(s: SequenceListItem): SequenceInput {
-  const { subject_id, period_id, title, levels, socle_domain, general_objectives, prerequisites, planned_sessions_count, success_criteria, final_assessment, notes } = s
-  return { subject_id, period_id, title, levels, socle_domain, general_objectives, prerequisites, planned_sessions_count, success_criteria, final_assessment, notes }
+  const { subject_id, period_id, title, levels, socle_domain, general_objectives, prerequisites, planned_sessions_count, success_criteria, final_assessment, notes, competency_ids } = s
+  return { subject_id, period_id, title, levels, socle_domain, general_objectives, prerequisites, planned_sessions_count, success_criteria, final_assessment, notes, competency_ids: competency_ids ?? [] }
 }
 
 function SequenceEditor({
@@ -171,6 +173,12 @@ function SequenceEditor({
   const [form, setForm] = useState<SequenceInput>(initial)
   const dirty = JSON.stringify(form) !== JSON.stringify(initial)
   const set = <K extends keyof SequenceInput>(k: K, v: SequenceInput[K]): void => setForm((f) => ({ ...f, [k]: v }))
+  const [picking, setPicking] = useState(false)
+  const [competencies, setCompetencies] = useState<Competency[]>([])
+  useEffect(() => {
+    void loadCompetencies().then(setCompetencies).catch(() => setCompetencies([]))
+  }, [])
+  const chosen = competencies.filter((c) => form.competency_ids?.includes(c.id))
 
   const save = async (e?: React.FormEvent): Promise<void> => {
     e?.preventDefault()
@@ -249,6 +257,42 @@ function SequenceEditor({
         <Field label="Évaluation finale" className="col-span-3">
           <Textarea value={form.final_assessment} onChange={(e) => set('final_assessment', e.target.value)} />
         </Field>
+        <div className="col-span-6">
+          <div className="mb-1.5 flex items-center justify-between">
+            <span className="text-xs font-medium text-muted-foreground">Objectifs du programme visés</span>
+            <Button variant="outline" size="sm" onClick={() => setPicking(true)}>
+              <ListChecks /> Choisir dans le programme
+            </Button>
+          </div>
+          {chosen.length > 0 ? (
+            <ul className="flex flex-col gap-1">
+              {chosen.map((c) => (
+                <li key={c.id} className="flex items-start gap-2 rounded-md bg-muted/60 px-2 py-1 text-sm">
+                  {c.level && <span className="mt-0.5 rounded bg-indigo-100 px-1.5 text-xs font-semibold text-indigo-800">{c.level}</span>}
+                  <span className="flex-1">{c.label}</span>
+                  <button type="button" onClick={() => set('competency_ids', (form.competency_ids ?? []).filter((x) => x !== c.id))} aria-label="Retirer">
+                    <X className="size-3.5 text-muted-foreground" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-xs text-muted-foreground">Aucun objectif sélectionné.</p>
+          )}
+        </div>
+        {picking && (
+          <CompetencyPicker
+            subjects={refs.subjects}
+            subjectId={form.subject_id}
+            selected={form.competency_ids ?? []}
+            multiple
+            onClose={() => setPicking(false)}
+            onConfirm={(items) => {
+              set('competency_ids', items.map((c) => c.id))
+              setPicking(false)
+            }}
+          />
+        )}
         <Field label="Notes, ressources, prolongements" className="col-span-6">
           <Textarea value={form.notes} onChange={(e) => set('notes', e.target.value)} className="min-h-14" />
         </Field>

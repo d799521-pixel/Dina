@@ -73,6 +73,10 @@ export interface JournalSlot {
   sequence_id: ID | null
   status: SlotStatus
   bilan: string
+  /** Groupe concerné : « PS », « GS », « Groupe 1 »… (vide = toute la classe). */
+  audience: string
+  /** Contenu prévu (texte libre, affiché sous « Activités : »). */
+  activities: string
   created_at: string
   updated_at: string
 }
@@ -87,6 +91,7 @@ export interface JournalSlotView extends JournalSlot {
   lesson_objective: string | null
   sequence_title: string | null
   notes_count: number
+  images_count: number
 }
 
 export interface JournalSlotInput {
@@ -97,6 +102,26 @@ export interface JournalSlotInput {
   title: string
   socle_domain: string | null
   lesson_id: ID | null
+  audience?: string
+  activities?: string
+}
+
+export interface SlotImage {
+  id: ID
+  slot_id: ID
+  position: number
+  mime: string
+  data: Uint8Array
+  caption: string
+}
+
+export interface Competency {
+  id: ID
+  subject_id: ID | null
+  level: string | null
+  area: string
+  skill: string
+  label: string
 }
 
 export interface JournalSlotNote {
@@ -132,6 +157,7 @@ export interface TimetableSlot {
   end_time: string
   subject_id: ID | null
   label: string
+  audience: string
 }
 
 export interface StudentSummary {
@@ -162,6 +188,21 @@ export interface SetupInput {
   levels: string[]
   school_year_label: string
   demo: boolean
+  /** Jours de présence en classe (1 = lundi … 5 = vendredi). */
+  school_days?: number[]
+}
+
+/**
+ * Modèle importable (fichier .json) : emploi du temps type, éléments de
+ * programmation (progressions d'un manuel…) et réglages de la semaine.
+ */
+export interface DinaTemplate {
+  format: 'dina-modele'
+  version: 1
+  title?: string
+  settings?: Partial<AppSettings>
+  timetable?: TimetableImportSlot[]
+  programming?: { subject: string; period: number; title: string; description?: string }[]
 }
 
 // ---------------------------------------------------------------------------
@@ -231,6 +272,8 @@ export interface SequenceInput {
   success_criteria: string
   final_assessment: string
   notes: string
+  /** Objectifs du programme visés (référentiel). */
+  competency_ids?: ID[]
 }
 
 export interface Sequence extends SequenceInput {
@@ -383,3 +426,14 @@ export interface StudentAppointment {
 }
 
 export type LessonHeader = Omit<Lesson, 'steps' | 'scheduled_dates'>
+
+/** Créneau d'un emploi du temps type importé (modèle partageable en JSON). */
+export interface TimetableImportSlot {
+  weekday: number
+  start_time: string
+  end_time: string
+  /** Nom ou nom court de la matière / du domaine. */
+  subject: string | null
+  label: string
+  audience?: string
+}

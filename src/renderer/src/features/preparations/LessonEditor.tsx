@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowDown, ArrowLeft, ArrowUp, CalendarCheck, Copy, FileDown, Plus, Save, Trash2, X } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowUp, CalendarCheck, Copy, FileDown, ListChecks, Plus, Save, Trash2, X } from 'lucide-react'
 import { WORK_MODE_LABELS } from '@shared/labels'
 import { WORK_MODES, type Lesson, type LessonInput, type LessonStep, type WorkMode } from '@shared/types'
 import { Badge } from '@/components/ui/badge'
@@ -10,6 +10,7 @@ import { fmt } from '@/lib/format'
 import { lessonDocument } from '@/lib/printDocs'
 import { notify, notifyError } from '@/lib/toast'
 import { cn } from '@/lib/utils'
+import { CompetencyPicker } from './CompetencyPicker'
 import { activeSubjects, type PrepRefs } from './PreparationsPage'
 
 const step = (title: string, work_mode: WorkMode, duration_min: number | null = null): LessonStep => ({
@@ -59,6 +60,7 @@ export function LessonEditor({
   const [lesson, setLesson] = useState<Lesson | null>(null)
   const [form, setForm] = useState<LessonInput | null>(null)
   const [saved, setSaved] = useState('')
+  const [picking, setPicking] = useState(false)
 
   useEffect(() => {
     if (lessonId === 'new') {
@@ -208,9 +210,28 @@ export function LessonEditor({
             ))}
           </Select>
         </Field>
-        <Field label="Objectif spécifique" className="col-span-6">
+        <div className="col-span-6 flex flex-col gap-1.5">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-medium text-muted-foreground">Objectif spécifique</span>
+            <Button variant="ghost" size="sm" onClick={() => setPicking(true)}>
+              <ListChecks /> Depuis le programme
+            </Button>
+          </div>
           <Textarea className="min-h-14" value={form.specific_objective} onChange={(e) => set('specific_objective', e.target.value)} placeholder="À la fin de la séance, l’élève sera capable de…" />
-        </Field>
+        </div>
+        {picking && (
+          <CompetencyPicker
+            subjects={refs.subjects}
+            subjectId={sequence?.subject_id ?? form.subject_id}
+            selected={[]}
+            multiple={false}
+            onClose={() => setPicking(false)}
+            onConfirm={([c]) => {
+              set('specific_objective', form.specific_objective.trim() ? `${form.specific_objective.trim()}\n${c.label}` : c.label)
+              setPicking(false)
+            }}
+          />
+        )}
         <Field label="Matériel" className="col-span-3">
           <Textarea className="min-h-14" value={form.materials} onChange={(e) => set('materials', e.target.value)} />
         </Field>

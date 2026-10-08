@@ -4,6 +4,7 @@ import {
   type JournalSlotInput,
   type JournalSlotNote,
   type JournalSlotView,
+  type SlotImage,
   type SlotNoteKind,
   type SlotStatus
 } from '@shared/types'
@@ -27,7 +28,8 @@ const SLOT_VIEW = /* sql */ `
          l.title              AS lesson_title,
          l.specific_objective AS lesson_objective,
          seq.title            AS sequence_title,
-         (SELECT count(*) FROM journal_slot_notes n WHERE n.slot_id = s.id) AS notes_count
+         (SELECT count(*) FROM journal_slot_notes n WHERE n.slot_id = s.id) AS notes_count,
+         (SELECT count(*) FROM journal_slot_images m WHERE m.slot_id = s.id) AS images_count
     FROM journal_slots s
     LEFT JOIN subjects  sub ON sub.id = s.subject_id
     LEFT JOIN lessons   l   ON l.id   = s.lesson_id
@@ -37,7 +39,7 @@ export function listSlots(db: DB, classId: number, from: string, to: string): Jo
   assertDate(from, 'début')
   assertDate(to, 'fin')
   return db
-    .prepare(`${SLOT_VIEW} WHERE s.class_id = ? AND s.date BETWEEN ? AND ? ORDER BY s.date, s.start_time`)
+    .prepare(`${SLOT_VIEW} WHERE s.class_id = ? AND s.date BETWEEN ? AND ? ORDER BY s.date, s.start_time, s.audience, s.id`)
     .all(classId, from, to) as JournalSlotView[]
 }
 
@@ -70,8 +72,8 @@ export function createSlot(db: DB, classId: number, input: JournalSlotInput): Jo
   const { lastInsertRowid } = db
     .prepare(
       `INSERT INTO journal_slots
-         (class_id, date, start_time, end_time, subject_id, title, socle_domain, lesson_id, sequence_id)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+         (class_id, date, start_time, end_time, subject_id, title, socle_domain, lesson_id, sequence_id, audience, activities)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     )
     .run(
       classId,
@@ -82,7 +84,9 @@ export function createSlot(db: DB, classId: number, input: JournalSlotInput): Jo
       text(input.title, 'titre', 300) || lesson?.title || '',
       input.socle_domain || null,
       lessonId,
-      lesson?.sequence_id ?? null
+      lesson?.sequence_id ?? null,
+      text(input.audience, 'groupe', 60).trim(),
+      text(input.activities, 'activités')
     )
   return getSlot(db, Number(lastInsertRowid))
 }
@@ -105,7 +109,7 @@ export function updateSlot(db: DB, classId: number, id: number, patch: SlotPatch
   db.prepare(
     `UPDATE journal_slots
         SET date = ?, start_time = ?, end_time = ?, subject_id = ?, title = ?, socle_domain = ?,
-            lesson_id = ?, sequence_id = ?, status = ?, bilan = ?,
+            lesson_id = ?, sequence_id = ?, status = ?, bilan = ?, audience = ?, activities = ?,
             updated_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
       WHERE id = ?`
   ).run(
@@ -119,6 +123,8 @@ export function updateSlot(db: DB, classId: number, id: number, patch: SlotPatch
     sequenceId,
     assertEnum(next.status, SLOT_STATUSES, 'statut'),
     text(next.bilan, 'bilan'),
+    text(next.audience, 'groupe', 60).trim(),
+    text(next.activities, 'activités'),
     id
   )
   return getSlot(db, id)
@@ -167,4 +173,41 @@ export function setDayNote(db: DB, classId: number, date: string, content: strin
        ON CONFLICT(class_id, date) DO UPDATE SET content = excluded.content`
     ).run(classId, date, value)
   }
+}
+
+// ------------------------------------------------------------------ Photos jointes
+
+const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp']
+const MAX_IMAGE_BYTES = 3 * 1024 * 1024
+
+function assertSlotOfClass(db: DB, classId: number, slotId: number): void {
+  if (!db.prepare('SELECT 1 FROM journal_slots WHERE id = ? AND class_id = ?').get(assertId(slotId), classId)) {
+    throw new ValidationError('Créneau introuvable')
+  }
+}
+
+export function listSlotImages(db: DB, classId: number, slotId: number): SlotImage[] {
+  assertSlotOfClass(db, classId, slotId)
+  return (
+    db.prepare('SELECT * FROM journal_slot_images WHERE slot_id = ? ORDER BY position, id').all(slotId) as SlotImage[]
+  ).map((i) => ({ ...i, data: new Uint8Array(i.data) }))
+}
+
+export function addSlotImage(db: DB, classId: number, slotId: number, image: { mime: string; data: Uint8Array; caption?: string }): SlotImage {
+  assertSlotOfClass(db, classId, slotId)
+  const mime = assertEnum(image.mime, IMAGE_TYPES, 'format d’image')
+  if (!(image.data instanceof Uint8Array) || image.data.byteLength === 0 || image.data.byteLength > MAX_IMAGE_BYTES) {
+    throw new ValidationError('Image invalide ou trop lourde (3 Mo maximum)')
+  }
+  const { p } = db.prepare('SELECT coalesce(max(position), 0) + 1 AS p FROM journal_slot_images WHERE slot_id = ?').get(slotId) as { p: number }
+  const { lastInsertRowid } = db
+    .prepare('INSERT INTO journal_slot_images (slot_id, position, mime, data, caption) VALUES (?, ?, ?, ?, ?)')
+    .run(slotId, p, mime, image.data, text(image.caption, 'légende', 300))
+  return { id: Number(lastInsertRowid), slot_id: slotId, position: p, mime, data: image.data, caption: image.caption ?? '' }
+}
+
+export function deleteSlotImage(db: DB, classId: number, imageId: number): void {
+  db.prepare(
+    'DELETE FROM journal_slot_images WHERE id = ? AND slot_id IN (SELECT id FROM journal_slots WHERE class_id = ?)'
+  ).run(assertId(imageId), classId)
 }

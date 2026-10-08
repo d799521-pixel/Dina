@@ -82,7 +82,15 @@ Variables utiles :
   versionnées (`PRAGMA user_version`), chiffrement optionnel avec changement /
   retrait du mot de passe, sauvegarde JSON compressée et chiffrée
   (AES-256-GCM + scrypt), restauration, export et effacement RGPD par élève.
-- **Cahier journal** : vues jour / semaine / mois, créneaux par matière et
+- **Maternelle** : domaines du programme 2024-2026, temps propres à la
+  maternelle (regroupement, sieste, pause méridienne, multi-domaine) et
+  **référentiel des 403 objectifs d'apprentissage officiels** par âge
+  (PS / MS / GS), à associer aux séquences et aux séances.
+- **Cahier journal** : vues jour / semaine / mois, créneaux par groupe
+  (PS, GS, groupe 1…) affichés **en colonnes** quand ils sont simultanés
+  (ateliers, sieste des PS pendant la phonologie des GS), texte
+  « Activités » et **photos** par créneau, **impression de la journée**
+  au format cahier journal, créneaux par matière et
   domaine du socle, lien en un clic vers une fiche de séance, statut de séance
   (fait, partiel, reporté, annulé), remarques rapides (retard, imprévu,
   différenciation…), bilan, note du jour, rendez-vous (parents, RASED, équipe,
@@ -108,6 +116,26 @@ Variables utiles :
   PAP / PPRE / PPS / tiers-temps), observations datées, historique des
   rendez-vous, alertes santé dans la liste, **export PDF** et **JSON** (droit
   d'accès) et **effacement définitif** (droit à l'effacement).
+
+## Modèles importables
+
+**Paramètres → Importer un modèle** accepte un fichier `.json` décrivant un
+emploi du temps type, des jours de classe et des éléments de programmation :
+
+```json
+{
+  "format": "dina-modele", "version": 1,
+  "settings": { "school_days": [5], "day_start": "08:20", "day_end": "16:30" },
+  "timetable": [
+    { "weekday": 5, "start_time": "09:00", "end_time": "09:30",
+      "subject": "Multi-domaine", "label": "Atelier dirigé", "audience": "GS" }
+  ],
+  "programming": [
+    { "subject": "Langage", "period": 1, "title": "Segmenter une phrase en mots",
+      "description": "Activités, pages du manuel…" }
+  ]
+}
+```
 
 ## Documentation
 

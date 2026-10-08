@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CalendarClock, CalendarPlus, ChevronLeft, ChevronRight, CopyCheck, Plus, Wand2 } from 'lucide-react'
+import { CalendarClock, CalendarPlus, ChevronLeft, ChevronRight, CopyCheck, Plus, Printer, Wand2 } from 'lucide-react'
 import {
   addDays,
   addMonths,
@@ -14,7 +14,8 @@ import { Button } from '@/components/ui/button'
 import { Segmented } from '@/components/ui/segmented'
 import { call, tryCall, useQuery } from '@/lib/api'
 import { fmt, longDate } from '@/lib/format'
-import { notify } from '@/lib/toast'
+import { journalDayDocument } from '@/lib/printDocs'
+import { notify, notifyError } from '@/lib/toast'
 import { AppointmentDialog, type AppointmentDraft } from './AppointmentDialog'
 import { DayView } from './DayView'
 import { MonthView } from './MonthView'
@@ -95,6 +96,21 @@ export function JournalPage(): React.JSX.Element {
     if (n !== undefined) notify(`Emploi du temps type enregistré (${n} créneaux).`)
   }
 
+  const printDay = async (): Promise<void> => {
+    try {
+      const daySlots = (data?.slots ?? []).filter((s) => s.date === anchor)
+      const images = new Map(
+        await Promise.all(daySlots.filter((s) => s.images_count > 0).map(async (s) => [s.id, await call('journal:images', s.id)] as const))
+      )
+      const [status, note] = await Promise.all([call('db:status'), call('journal:day-note', anchor)])
+      const html = journalDayDocument(anchor, status.current_class?.name ?? '', daySlots, images, note)
+      const path = await call('pdf:export', html, `Cahier journal ${anchor}.pdf`)
+      if (path) notify(`PDF enregistré : ${path}`)
+    } catch (err) {
+      notifyError(err)
+    }
+  }
+
   const slots: JournalSlotView[] = data?.slots ?? []
   const appointments: Appointment[] = data?.appointments ?? []
 
@@ -131,6 +147,11 @@ export function JournalPage(): React.JSX.Element {
               <CopyCheck />
             </Button>
           </>
+        )}
+        {view === 'jour' && (
+          <Button variant="outline" onClick={printDay} title="Imprimer ou enregistrer la journée en PDF">
+            <Printer /> Imprimer
+          </Button>
         )}
         <Button variant="outline" onClick={() => newAppointment()}>
           <CalendarClock /> Rendez-vous

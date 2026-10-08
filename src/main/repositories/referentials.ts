@@ -1,4 +1,4 @@
-import type { LessonSummary, SocleDomain, StudentSummary, Subject } from '@shared/types'
+import type { Competency, LessonSummary, SocleDomain, StudentSummary, Subject } from '@shared/types'
 import type { DB } from '../db/types'
 
 export function listSubjects(db: DB): Subject[] {
@@ -31,4 +31,14 @@ export function listStudentSummaries(db: DB, classId: number): StudentSummary[] 
         ORDER BY last_name, first_name`
     )
     .all(classId) as StudentSummary[]
+}
+
+export function listCompetencies(db: DB): Competency[] {
+  return db
+    .prepare(
+      `SELECT c.id, c.subject_id, c.level, c.area, c.skill, c.label
+         FROM competencies c LEFT JOIN subjects s ON s.id = c.subject_id
+        ORDER BY s.position, c.position, c.id`
+    )
+    .all() as Competency[]
 }

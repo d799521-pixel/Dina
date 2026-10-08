@@ -26,7 +26,7 @@ export function useTodaySlots(): { slots: JournalSlotView[]; nowMin: number } {
   return { slots, nowMin }
 }
 
-const label = (s: JournalSlotView): string => s.subject_short ?? s.title ?? 'Activité'
+const label = (s: JournalSlotView): string => `${s.audience ? s.audience + ' · ' : ''}${s.subject_short ?? s.title ?? 'Activité'}`
 
 /** Programme de la journée en pictogrammes, pour les élèves. */
 export function DayProgram({ slots, nowMin, scale, layout }: { slots: JournalSlotView[]; nowMin: number; scale: number; layout: 'row' | 'column' }): React.JSX.Element {

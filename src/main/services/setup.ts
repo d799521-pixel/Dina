@@ -3,13 +3,14 @@ import type { SetupInput } from '@shared/types'
 import type { DB } from '../db/types'
 import { createClassWithYear } from '../repositories/classes'
 import { applyTimetableToWeek } from '../repositories/timetable'
-import { getAppSettings } from '../repositories/settings'
+import { getAppSettings, updateAppSettings } from '../repositories/settings'
 import { ValidationError } from '../validation'
 
 export function initialSetup(db: DB, input: SetupInput): void {
   const name = input.class_name.trim()
   if (!name) throw new ValidationError('Le nom de la classe est obligatoire')
   const cls = createClassWithYear(db, input.school_year_label.trim() || 'Année en cours', name, input.levels)
+  if (input.school_days?.length) updateAppSettings(db, { school_days: input.school_days })
   if (input.demo) seedDemo(db, cls.id)
 }
 

@@ -45,7 +45,7 @@ describe('migrations', () => {
   })
 
   it("n'active pas les domaines de maternelle pour une classe élémentaire", () => {
-    expect(listSubjects(db).find((s) => s.short_name === 'Explorer')?.archived).toBe(1)
+    expect(listSubjects(db).find((s) => s.short_name === 'Découvrir le monde')?.archived).toBe(1)
   })
 })
 
