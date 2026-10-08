@@ -120,12 +120,25 @@ française), Andika (script pensé pour l'apprentissage de la lecture),
 OpenDyslexic. Belle Allure n'est pas redistribuable : chacun peut importer son
 propre fichier, copié dans le dossier de données et chargé localement.
 
-## 5. Prochaines étapes
+## 5. Export PDF
 
-1. Module Préparations : programmations P1–P5 en grille, fiches séquence,
-   éditeur de fiche de séance (étapes, durées, modalités), duplication.
-2. Module Élèves : fiches de renseignements, observations, export PDF
-   (`webContents.printToPDF`, hors-ligne) et JSON, bouton d'effacement.
-3. Bilan de séance → observations élèves ; impression du cahier journal.
-4. Calendrier des vacances par zone (saisie locale), préréglages de consignes
+`pdf:export` reçoit un document HTML autonome (construit dans
+`src/renderer/src/lib/printDocs.ts`, toutes les valeurs échappées), l'affiche
+dans une fenêtre invisible **sans JavaScript** puis appelle
+`webContents.printToPDF` : aucun service ni moteur externe.
+
+## 6. Installeurs
+
+`.github/workflows/installeurs.yml` vérifie (types + tests) puis fabrique les
+installeurs sur Windows (NSIS + portable), macOS (dmg arm64 et x64) et Linux
+(AppImage). Le module SQLite étant fourni précompilé (N-API) pour chaque
+plate-forme, aucune recompilation n'est nécessaire (`npmRebuild: false`).
+Pousser une étiquette `v0.2.0` publie en plus une Release GitHub.
+
+## 7. Prochaines étapes
+
+1. Bilan de séance → observations élèves en un clic depuis le cahier journal.
+2. Impression du cahier journal (jour / semaine) et des programmations.
+3. Calendrier des vacances par zone (saisie locale), préréglages de consignes
    (`board_presets`).
+4. Signature des installeurs si l'application est diffusée plus largement.

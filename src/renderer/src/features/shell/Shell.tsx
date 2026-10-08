@@ -5,7 +5,8 @@ import { cn } from '@/lib/utils'
 import { JournalPage } from '../journal/JournalPage'
 import { BoardConsole } from '../projection/BoardConsole'
 import { SettingsPage } from '../settings/SettingsPage'
-import { ComingSoon } from '../placeholder/ComingSoon'
+import { PreparationsPage } from '../preparations/PreparationsPage'
+import { StudentsPage } from '../students/StudentsPage'
 
 type Page = 'journal' | 'preparations' | 'eleves' | 'tableau' | 'parametres'
 
@@ -52,18 +53,8 @@ export function Shell({ status, onStatusChange }: { status: DbStatus; onStatusCh
         {page === 'journal' && <JournalPage />}
         {page === 'tableau' && <BoardConsole />}
         {page === 'parametres' && <SettingsPage status={status} onStatusChange={onStatusChange} />}
-        {page === 'preparations' && (
-          <ComingSoon
-            title="Préparations"
-            items={['Programmations P1 → P5 par domaine', 'Fiches séquence', 'Fiches de préparation détaillées (déroulement, modalités, différenciation)']}
-          />
-        )}
-        {page === 'eleves' && (
-          <ComingSoon
-            title="Élèves"
-            items={['Fiches de renseignements', 'Santé / PAI, aménagements (PAP, PPRE, PPS)', 'Observations, export PDF et effacement RGPD']}
-          />
-        )}
+        {page === 'preparations' && <PreparationsPage />}
+        {page === 'eleves' && <StudentsPage className={status.current_class?.name ?? ''} />}
       </main>
     </div>
   )

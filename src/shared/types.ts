@@ -215,3 +215,171 @@ export interface CustomFont {
   name: string
   data: Uint8Array
 }
+
+// ---------------------------------------------------------------------------
+// Préparations
+
+export interface SequenceInput {
+  subject_id: ID | null
+  period_id: ID | null
+  title: string
+  levels: string[]
+  socle_domain: string | null
+  general_objectives: string
+  prerequisites: string
+  planned_sessions_count: number | null
+  success_criteria: string
+  final_assessment: string
+  notes: string
+}
+
+export interface Sequence extends SequenceInput {
+  id: ID
+  class_id: ID
+  created_at: string
+  updated_at: string
+}
+
+export interface SequenceListItem extends Sequence {
+  subject_name: string | null
+  subject_short: string | null
+  subject_color: string | null
+  subject_icon: string | null
+  period_number: number | null
+  lessons_count: number
+}
+
+export interface LessonStep {
+  id?: ID
+  title: string
+  duration_min: number | null
+  work_mode: WorkMode
+  teacher_role: string
+  student_activity: string
+  materials: string
+}
+
+export interface LessonInput {
+  sequence_id: ID | null
+  subject_id: ID | null
+  number_in_sequence: number | null
+  title: string
+  specific_objective: string
+  duration_min: number | null
+  materials: string
+  success_criteria: string
+  differentiation: string
+  institutionalization: string
+  assessment: string
+  notes: string
+  steps: LessonStep[]
+}
+
+export interface Lesson extends LessonInput {
+  id: ID
+  class_id: ID
+  created_at: string
+  updated_at: string
+  /** Dates du cahier journal où la séance est programmée. */
+  scheduled_dates: string[]
+}
+
+export interface ProgrammingItem {
+  id: ID
+  class_id: ID
+  subject_id: ID | null
+  period_id: ID | null
+  sequence_id: ID | null
+  title: string
+  description: string
+  position: number
+}
+
+export type ProgrammingItemInput = Omit<ProgrammingItem, 'id' | 'class_id' | 'position'>
+
+export interface PeriodInput {
+  label: string
+  start_date: string | null
+  end_date: string | null
+}
+
+// ---------------------------------------------------------------------------
+// Élèves
+
+export interface StudentListItem extends StudentSummary {
+  birth_date: string | null
+  has_pai: 0 | 1
+  allergies: string
+  accommodations: string[]
+  photo_ok: 0 | 1 | null
+}
+
+export interface StudentContact {
+  id?: ID
+  full_name: string
+  relation: string
+  phone: string
+  phone_alt: string
+  email: string
+  address: string
+  is_legal_guardian: 0 | 1
+  is_emergency: 0 | 1
+  can_pick_up: 0 | 1
+}
+
+export interface StudentAuthorization {
+  kind: string
+  granted: 0 | 1
+  signed_on: string | null
+  comment: string
+}
+
+export interface StudentAccommodation {
+  id?: ID
+  type: AccommodationType
+  start_date: string | null
+  end_date: string | null
+  details: string
+}
+
+export interface StudentHealth {
+  allergies: string
+  has_pai: 0 | 1
+  pai_details: string
+  medical_notes: string
+}
+
+export interface StudentFile {
+  id: ID | null
+  last_name: string
+  first_name: string
+  birth_date: string | null
+  level: string
+  entry_date: string | null
+  leave_date: string | null
+  contacts: StudentContact[]
+  authorizations: StudentAuthorization[]
+  health: StudentHealth
+  accommodations: StudentAccommodation[]
+}
+
+export interface StudentObservation {
+  id: ID
+  student_id: ID
+  date: string
+  category: string
+  content: string
+  journal_slot_id: ID | null
+  created_at: string
+}
+
+export interface StudentAppointment {
+  id: ID
+  date: string
+  start_time: string
+  kind: AppointmentKind
+  title: string
+  report: string
+}
+
+export type LessonHeader = Omit<Lesson, 'steps' | 'scheduled_dates'>

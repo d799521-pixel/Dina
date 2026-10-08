@@ -5,6 +5,19 @@ import type {
   CustomFont,
   DbStatus,
   JournalSlotInput,
+  Lesson,
+  LessonHeader,
+  LessonInput,
+  Period,
+  PeriodInput,
+  ProgrammingItem,
+  ProgrammingItemInput,
+  SequenceInput,
+  SequenceListItem,
+  StudentAppointment,
+  StudentFile,
+  StudentListItem,
+  StudentObservation,
   JournalSlotNote,
   JournalSlotView,
   LessonSummary,
@@ -60,8 +73,40 @@ export interface IpcContract {
   'appointments:update': (id: number, input: AppointmentInput) => Appointment
   'appointments:delete': (id: number) => void
 
+  'periods:list': () => Period[]
+  'periods:update': (id: number, input: PeriodInput) => Period
+
+  'sequences:list': () => SequenceListItem[]
+  'sequences:create': (input: SequenceInput) => SequenceListItem
+  'sequences:update': (id: number, input: SequenceInput) => SequenceListItem
+  'sequences:delete': (id: number) => void
+
+  'lessons:of-sequence': (sequenceId: number | null) => LessonHeader[]
+  'lessons:get': (id: number) => Lesson
+  'lessons:create': (input: LessonInput) => Lesson
+  'lessons:update': (id: number, input: LessonInput) => Lesson
+  'lessons:duplicate': (id: number) => Lesson
+  'lessons:delete': (id: number) => void
+
+  'programming:list': () => ProgrammingItem[]
+  'programming:create': (input: ProgrammingItemInput) => ProgrammingItem
+  'programming:update': (id: number, input: ProgrammingItemInput) => ProgrammingItem
+  'programming:move': (id: number, direction: -1 | 1) => void
+  'programming:delete': (id: number) => void
+  'programming:to-sequence': (id: number) => SequenceListItem
+
+  'students:list': (includeLeft: boolean) => StudentListItem[]
+  'students:get': (id: number) => StudentFile
+  'students:save': (file: StudentFile) => StudentFile
+  'students:observations': (id: number) => StudentObservation[]
+  'students:add-observation': (id: number, input: { date: string; category: string; content: string }) => StudentObservation
+  'students:delete-observation': (observationId: number) => void
+  'students:appointments': (id: number) => StudentAppointment[]
   'students:export': (id: number) => string | null
   'students:erase': (id: number) => void
+
+  /** Convertit un document HTML autonome en PDF (moteur local, JavaScript désactivé). */
+  'pdf:export': (html: string, defaultName: string) => string | null
 
   'backup:export': (passphrase: string | null) => string | null
   'backup:import': (passphrase: string | null) => boolean
@@ -87,7 +132,14 @@ export const CHANNELS: readonly Channel[] = [
   'journal:notes', 'journal:add-note', 'journal:delete-note', 'journal:day-note', 'journal:set-day-note',
   'timetable:get', 'timetable:save-week', 'timetable:apply-week',
   'appointments:range', 'appointments:create', 'appointments:update', 'appointments:delete',
-  'students:export', 'students:erase',
+  'periods:list', 'periods:update',
+  'sequences:list', 'sequences:create', 'sequences:update', 'sequences:delete',
+  'lessons:of-sequence', 'lessons:get', 'lessons:create', 'lessons:update', 'lessons:duplicate', 'lessons:delete',
+  'programming:list', 'programming:create', 'programming:update', 'programming:move', 'programming:delete',
+  'programming:to-sequence',
+  'students:list', 'students:get', 'students:save', 'students:observations', 'students:add-observation',
+  'students:delete-observation', 'students:appointments', 'students:export', 'students:erase',
+  'pdf:export',
   'backup:export', 'backup:import',
   'projection:open', 'projection:close', 'projection:is-open', 'projection:get', 'projection:set',
   'fonts:get', 'fonts:import', 'fonts:remove'

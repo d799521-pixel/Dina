@@ -7,10 +7,13 @@ import type { FontStore } from './fonts'
 import type { ProjectionController } from './projection'
 import * as appointments from './repositories/appointments'
 import * as journal from './repositories/journal'
+import * as prep from './repositories/preparations'
+import * as students from './repositories/students'
 import * as ref from './repositories/referentials'
 import { getAppSettings, updateAppSettings } from './repositories/settings'
 import * as timetable from './repositories/timetable'
 import { createBackup, readBackup, restoreBackup } from './services/backup'
+import { exportPdf } from './services/pdf'
 import { eraseStudent, exportStudentData } from './services/students'
 
 type Handler<C extends Channel> = (...args: Parameters<IpcContract[C]>) => ReturnType<IpcContract[C]> | Promise<ReturnType<IpcContract[C]>>
@@ -78,6 +81,35 @@ export function registerIpc(dbm: DbManager, projection: ProjectionController, fo
   handle('appointments:update', (id, input) => appointments.updateAppointment(db(), cls(), id, input))
   handle('appointments:delete', (id) => appointments.deleteAppointment(db(), cls(), id))
 
+  handle('periods:list', () => prep.listClassPeriods(db(), cls()))
+  handle('periods:update', (id, input) => prep.updatePeriod(db(), cls(), id, input))
+
+  handle('sequences:list', () => prep.listSequences(db(), cls()))
+  handle('sequences:create', (input) => prep.createSequence(db(), cls(), input))
+  handle('sequences:update', (id, input) => prep.updateSequence(db(), cls(), id, input))
+  handle('sequences:delete', (id) => prep.deleteSequence(db(), cls(), id))
+
+  handle('lessons:of-sequence', (sequenceId) => prep.listSequenceLessons(db(), cls(), sequenceId))
+  handle('lessons:get', (id) => prep.getLesson(db(), cls(), id))
+  handle('lessons:create', (input) => prep.createLesson(db(), cls(), input))
+  handle('lessons:update', (id, input) => prep.updateLesson(db(), cls(), id, input))
+  handle('lessons:duplicate', (id) => prep.duplicateLesson(db(), cls(), id))
+  handle('lessons:delete', (id) => prep.deleteLesson(db(), cls(), id))
+
+  handle('programming:list', () => prep.listProgramming(db(), cls()))
+  handle('programming:create', (input) => prep.createProgrammingItem(db(), cls(), input))
+  handle('programming:update', (id, input) => prep.updateProgrammingItem(db(), cls(), id, input))
+  handle('programming:move', (id, direction) => prep.moveProgrammingItem(db(), cls(), id, direction))
+  handle('programming:delete', (id) => prep.deleteProgrammingItem(db(), cls(), id))
+  handle('programming:to-sequence', (id) => prep.sequenceFromProgramming(db(), cls(), id))
+
+  handle('students:list', (includeLeft) => students.listStudents(db(), cls(), includeLeft))
+  handle('students:get', (id) => students.getStudentFile(db(), cls(), id))
+  handle('students:save', (file) => students.saveStudentFile(db(), cls(), file))
+  handle('students:observations', (id) => students.listObservations(db(), cls(), id))
+  handle('students:add-observation', (id, input) => students.addObservation(db(), cls(), id, input))
+  handle('students:delete-observation', (id) => students.deleteObservation(db(), cls(), id))
+  handle('students:appointments', (id) => students.listStudentAppointments(db(), cls(), id))
   handle('students:export', async (id) => {
     const data = exportStudentData(db(), cls(), id)
     const { canceled, filePath } = await dialog.showSaveDialog(parent(), {
@@ -90,6 +122,8 @@ export function registerIpc(dbm: DbManager, projection: ProjectionController, fo
     return filePath
   })
   handle('students:erase', (id) => eraseStudent(db(), cls(), id))
+
+  handle('pdf:export', (html, name) => exportPdf(parent(), html, name))
 
   handle('backup:export', async (passphrase) => {
     const envelope = createBackup(db(), passphrase)
